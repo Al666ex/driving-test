@@ -3,12 +3,8 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/driving-test",
   plugins: [react()],
-  server: {
-    // origin: 'http://10.12.89.43:8080'
-    host: '10.12.89.43',
-    port: 3000
-  },
   build: {
     rollupOptions: {
       output: {
