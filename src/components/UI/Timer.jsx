@@ -1,0 +1,195 @@
+import React, { useState, useEffect } from 'react';
+import { Button, Modal, Flex, Alert } from 'antd';
+import {toAddZero} from '../../utils/toAddZero'
+import {useSelector,useDispatch} from 'react-redux'
+import {setIsRunning,setStopExamen,setFieldsDisabled} from '../../app/dlSlice'
+import {ClockCircleOutlined, PlayCircleOutlined} from '@ant-design/icons'
+import StyledComponent from './StyledComponent' 
+
+
+const Timer = () => {
+  // const [categoria, setCategoria] = useState(null)
+  const [candidatFields, setCandidatFields] = useState(null)
+  const [worning,setWarning] = useState('')
+  const [clickStart,setClickStart] = useState(false)
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [differenceInMinutes, setDifferenceInMinutes] = useState(0);
+  const [differenceInSeconds, setDifferenceInSeconds] = useState(0);
+  // const [isRunning, setIsRunning] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
+
+  const [hideButton,setHideButton] = useState(false)
+
+  const [finalDifferenceInMinutes, setFinalDifferenceInMinutes] = useState(0);
+  const [finalDifferenceInSeconds, setFinalDifferenceInSeconds] = useState(0);
+
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.auth.user)
+  const punctele = useSelector((state) => state.dl.punctele)
+  const isRunning = useSelector((state) => state.dl.isRunning)
+  const candidat = useSelector((state) => state.dl.candidat)
+  const carnumber = useSelector((state) => state.dl.carnumber)
+  const mocksSolicitants = useSelector((state) => state.dl.mocksSolicitants)
+
+  // useEffect(() => {
+  //   if(punctele > 20){
+  //     handleStop()
+  //   }
+    
+  // },[punctele])
+
+  useEffect(() => {
+    if(candidat !== null){
+      const findCandidat = mocksSolicitants.find((item) => item.name === candidat)
+      if(findCandidat){
+        // setCategoria(findCandidat.category)
+        setCandidatFields({category : findCandidat.category, typeCV : findCandidat.typeCV})
+      }
+      
+      return 
+    }
+  },[candidat])
+
+  const confirmStart = () => {
+    // candidat === null ?
+    //   <Alert style={{zIndex : '10000', position : 'absolute'}} message="Warning" type="warning" showIcon closable /> :
+    if(candidat === null || carnumber === null){
+      setWarning(`Completați cîmpuri candidat și AUTO`)
+      setClickStart(true)
+      return
+    }
+
+    Modal.confirm({
+      title: 'Începe testul practic pentru permisul de conducere?',      
+      width : '900px',
+      fontSize : '1.2rem',
+      onOk: handleStart,
+      okText: 'Da',
+      cancelText: 'Nu'
+    });
+  };
+
+  const confirmStop = () => {
+    Modal.confirm({
+      title: 'Finaliza examenul pentru obținerea permisului de conducere?',
+      onOk: handleStop,
+      okText: 'Da',
+      cancelText: 'Nu'
+    });
+  };
+
+  const handleStart = () => {
+    setStartTime(new Date());
+    dispatch(setIsRunning(true));
+    dispatch(setFieldsDisabled(true))
+
+    const id = setInterval(() => {
+      setEndTime(new Date());
+    }, 1000);
+
+    setIntervalId(id);
+  };
+
+  const handleStop = () => {
+    clearInterval(intervalId);
+    dispatch(setIsRunning(false));
+    dispatch(setStopExamen(true))
+
+    if (startTime && endTime) {
+      let difference = endTime.getTime() - startTime.getTime();
+      let minutes = Math.floor(difference / (1000 * 60));
+      let seconds = Math.floor((difference / 1000) % 60);
+
+      setFinalDifferenceInMinutes(minutes);
+      setFinalDifferenceInSeconds(seconds);
+    }
+
+    setStartTime(null);
+    setEndTime(null);
+    setDifferenceInMinutes(0);
+    setDifferenceInSeconds(0);
+    setHideButton(true)
+  };
+
+  useEffect(() => {
+    if (startTime && endTime) {
+      let difference = endTime.getTime() - startTime.getTime();
+      let minutes = Math.floor(difference / (1000 * 60));
+      let seconds = Math.floor((difference / 1000) % 60);
+
+      setDifferenceInMinutes(minutes);
+      setDifferenceInSeconds(seconds);
+    }
+  }, [startTime, endTime]);
+
+  return (
+    <div>
+
+      {((candidat === null || carnumber === null) && clickStart === true)  &&
+      <Alert
+        message="Text de avertizare"
+        style={{position : 'absolute', zIndex : '10', width : '75%'}}
+        description={worning}
+        showIcon
+        type="warning"        
+        onClose={() => {setClickStart(false)}}
+        closable
+      />} 
+ 
+      <Flex align='center' justify='space-between' style={{width : '100%', color : 'white', margin : '5px 0px'}}>
+        
+        <div style={{fontSize : '1.2rem'}}>SCCA CHIŞINĂU</div>        
+        
+        <div className={hideButton === true ? 'hideTime' : 'center'}>
+          {
+            !isRunning ? (
+            <Button 
+              className='start-button' 
+              icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}
+              style={{fontSize : '1rem', padding : '0.4rem'}}
+              size='large' 
+              type='primary' 
+              onClick={confirmStart}
+            >START EXAMENUL
+            </Button>
+          ) : (
+            <Button 
+              className='start-button' 
+              style={{fontSize : '1rem', padding : '0.4rem'}}
+              size='large' 
+              type='primary' 
+              onClick={confirmStop}
+            >FINALIZAREA EXAMENULUI
+            </Button>
+          )
+          }
+        </div>
+        <Flex vertical justify='flex-start'>
+          <div className='scca_categoria'><span className='text_static_header'>TIPUL </span> {candidatFields!==null ? candidatFields.typeCV : ''}</div>
+          <div className='scca_categoria'><span className='text_static_header'>CATEGORIA</span> {candidatFields!==null ? candidatFields.category : ''}</div>
+        </Flex>
+      </Flex>
+
+      {startTime && (
+        <div style={{display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
+          <Flex justify='start' align='center'>
+            <ClockCircleOutlined  className='custom-icon' />
+            <div className='timer'> {toAddZero(differenceInMinutes)}:{toAddZero(differenceInSeconds)}</div>
+          </Flex>
+          <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} /></div>
+        </div>
+      )}
+
+      {!isRunning && (finalDifferenceInMinutes > 0 || finalDifferenceInSeconds > 0) && (
+        <div style={{display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
+          <div className='timer'>Durata examenului {toAddZero(finalDifferenceInMinutes)}:{toAddZero(finalDifferenceInSeconds)} </div>
+          <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} />
+          </div>          
+        </div>          
+      )}
+    </div>
+  );
+};
+
+export default Timer;

@@ -1,0 +1,292 @@
+#root {
+  max-width: 1280px;
+  min-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(58, 35, 35, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system\, BlinkMacSystemFont;
+}
+
+.authButton{
+  padding: 1.5rem;
+  font-size: x-large;
+}
+
+.text_static_header{
+  color: var(--color-static-text);
+}
+
+.examiner{
+  border: 1px var(--color-white) solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.headerMain{
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;  
+  background: #474745;
+  opacity: 1;
+  z-index: 100;
+ /* background: url('./assets/wallpapers.jpg') no-repeat center center ; */
+    background-size: cover;
+}
+
+.headerMainFailed{
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;  
+  background: #e32525;
+  opacity: 1;
+  z-index: 100;
+ /* background: url('./assets/wallpapers.jpg') no-repeat center center ; */
+    background-size: cover;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timer{
+  font-size: 2rem;
+  /* font-weight: bold; */
+  color: var(--color-white);
+}
+
+.hideTime{
+  display: none;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-button {
+  font-size: 30px; /* Размер шрифта */
+  
+  padding: 10px 20px; /* Внутренние отступы */
+  border-radius: 12px; /* Скругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для выпуклости */
+  border: none; /* Убрать рамку */
+}
+
+.start-button {
+  font-size: 1rem; /* Размер шрифта */
+  font-weight: bold; /* Жирность шрифта */
+  padding: 10px 20px; /* Внутренние отступы */
+  height: auto; /* Высота кнопки */
+  width: auto; /* Ширина кнопки */
+  /* background: linear-gradient(145deg, #ffffff, #e6e6e6);  */
+  /* background: rgb(64, 150, 255); */
+  background: #1a5297;
+  border: 1px solid #d1d1d1; /* Граница */
+  border-radius: 10px; /* Скругление углов */
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* Тень */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {
+  /* color: #fff; */
+  color: var(--color-white);
+  background: rgba(161,21,207, 0.5);
+}
+
+.modal{
+  position: fixed; top: 50%; left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {
+  font-size: 20px;
+}
+
+.ant-collapse-header-text{
+  /* color: #fff; */
+  color: var(--color-white);
+}
+
+.notSelectedId{
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.custom-icon {
+  font-size: 2em; /* размер иконки */
+  width: 1.2em;     /* ширина иконки */
+  height: 1em;    /* высота иконки */
+  color: var(--color-white);
+  /* color: #fff; */
+}
+
+.dynamic__components{
+  display: flex;
+  align-items: center;  
+}
+
+.query__params{
+  margin-right: 5px;
+  font-size: 1.5rem;  
+  /* color: darkturquoise; */
+  color: var(--color-static-text);  
+}
+
+.disabledbutton {
+  pointer-events: none; 
+  opacity: 0.4;
+}
+
+.enabledButton{
+  margin-top: 150px;
+  overflow: auto;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-title {
+  font-size: 1.2rem;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns { 
+  display: flex;  
+  justify-content: space-between;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal .ant-modal-content {
+  width: 100%;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-body {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-paragraph {
+  row-gap: 0;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-alert .ant-alert-close-icon {
+  font-size: 22px;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-select-single .ant-select-selector {  
+  font-size: 1rem;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-select-outlined.ant-select-disabled:not(.ant-select-customize-input) .ant-select-selector {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--color-white);
+}
+
+.scca_categoria{
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm-info .ant-modal-confirm-body>.anticon {
+  display: none;
+}
+
+.aquamarine{
+  background: aquamarine;
+}
+
+.whiteColor{
+  color: var(--color-white);
+}
+
+.crimsonColor{
+  color: crimson;
+}
+
+:where(.css-zg0ahe).ant-select-outlined.ant-select-disabled:not(.ant-select-customize-input) .ant-select-selector {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--color-white);
+}
+
+.puncteleAcumulate{
+  font-size: 2rem;
+  color: var(--color-white);
+}
+
+:where(.css-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+:where(.css-zg0ahe).ant-form-item .ant-form-item-label >label {
+  height: auto;
+  font-size: 1.5rem;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {
+  height: auto;
+  font-size: 1.5rem;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-control-input {
+  /* min-height: 0;   */
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-control-input {
+  position: relative;
+  display: flex;
+  min-height: 32px;
+  align-self: stretch;
+  align-items: flex-start;
+}
+
+:where(.css-zg0ahe).ant-form-item .ant-form-item-control-input {
+  align-items: flex-start;
+}
+
+:where(.css-zg0ahe).ant-btn-default {
+  padding: 1.5rem;
+  font-size: x-large;
+  background: #faad14;
+}
+
+:where(.css-zg0ahe).ant-btn-primary {
+  padding: 1.5rem;
+  font-size: x-large;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-btn-default {
+  padding: 1.5rem;
+  font-size: x-large;
+  /* background: #faad14; */
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns .ant-btn+.ant-btn {
+  padding: 1.5rem;
+  font-size: x-large;
+  /* background: #0762e3; */
+}
+
+:where(.css-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns .ant-btn+.ant-btn { 
+  padding: 1.5rem;
+  padding: x-large; 
+}
