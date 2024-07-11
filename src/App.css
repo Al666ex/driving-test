@@ -279,13 +279,14 @@
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
-  padding: 0.8rem 1rem;
+  padding: 1.1rem 1.4rem;
 }
 
 :where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
-  padding: 0.8rem 1rem;
+  padding: 1.1rem 1.4rem;
 }
 
 :where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
   height: 2rem;
 }
+
