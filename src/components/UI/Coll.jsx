@@ -175,7 +175,7 @@ const Coll = () => {
 
   const items = list.map((param) => ({
     key: param.id,
-    label: param.title,
+    label: `${param.id}. ${param.title}`,
     style: { fontSize: '1.3rem', color: 'white' },
     children: (
       <>

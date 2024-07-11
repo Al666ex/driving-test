@@ -273,3 +273,19 @@
 :where(.css-zg0ahe).ant-alert-with-description .ant-alert-description {
   font-size: 1.2rem;
 }
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
+  height: 2rem;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
+  padding: 0.8rem 1rem;
+}
+
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
+  padding: 0.8rem 1rem;
+}
+
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
+  height: 2rem;
+}
