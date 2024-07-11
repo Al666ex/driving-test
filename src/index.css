@@ -10,12 +10,12 @@
   font-weight: 400;
   --color-white : white;
   --color-static-text : rgb(64, 150, 255);
-
+  --background-header-main : #474745;
+  --background-header-main-failed : #e32525;
+  --button-box-shadow:rgba(0, 0, 0, 0.2);
+  --select-disabled :rgba(0, 0, 0, 0.04);
   color-scheme: light dark;
   color: rgba(58, 35, 35, 0.87);
-  /* background-color: #242424; */
-  /* background-color: #c7c0c0; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

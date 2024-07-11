@@ -23,11 +23,7 @@ function App() {
             <div >              
                 <div className={punctele >=21 ? 'headerMainFailed' : 'headerMain'}>
                   <Header />
-                  {/* <Timer /> */}
                 </div>
-                {/* <div style={{marginTop : '50px'}}>
-                  <Timer />
-                </div> */}
                 <Coll />
             </div>
       }

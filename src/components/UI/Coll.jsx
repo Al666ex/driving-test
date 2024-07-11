@@ -11,21 +11,18 @@ const Coll = () => {
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.error({
-      message: (
-        // <span style={{ color: 'white' }}>
+      message: (        
         <span style={{ color: 'black' }}>
           EXAMEN NU A FOST SUSȚINUT
         </span>
       ),
-      description: (
-        // <span style={{ color: 'white' }}>
+      description: (        
         <span style={{ color: 'black' }}>
           Ați atins limita de puncte de penalizare. Examenul a eșuat.
         </span>
       ),
       style: {
-        // backgroundColor: 'crimson', 
-        backgroundColor : 'white'
+        backgroundColor : 'var(--color-white)'
       },
     });
   };
@@ -195,8 +192,7 @@ const Coll = () => {
               position: 'relative',
               fontSize :'1.3rem',
               paddingTop : '0.8rem',
-              paddingBottom : '0.8rem',
-              //...(index === array.length - 1 ? {} : { borderBottom: '1px solid darkgray', paddingBottom: '0.5rem' }) // Apply styles except for the last element
+              paddingBottom : '0.8rem',              
               ...(index % 2 === 0 ? {background : '#D3D3D3', borderRadius : '0.2rem' } : {}) // even index / odd index 
             }}
             onClick={() => handleItemClick(penalizare.id, penalizare.text)}
@@ -224,11 +220,9 @@ const Coll = () => {
   return (
     <div className='enabledButton'>
       <div ref={headerRef} className='headerMain'></div>
-      {contextHolder}
-      {/* <div className={(isRunning === false && stopExamen === false) || (punctele >= 21) || (stopExamen === true) ? 'disabledbutton' : ''}> */}
+      {contextHolder}      
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>        
-        <Collapse
-          // style={{ height: 'auto', scroll: 'auto', marginBottom: '1000px' }}
+        <Collapse          
           style={{ height: 'auto', scroll: 'auto', }}
           accordion
           items={items}

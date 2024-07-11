@@ -55,7 +55,7 @@ const Timer = () => {
     // candidat === null ?
     //   <Alert style={{zIndex : '10000', position : 'absolute'}} message="Warning" type="warning" showIcon closable /> :
     if(candidat === null || carnumber === null){
-      setWarning(`Completați cîmpuri candidat și AUTO`)
+      setWarning(`Completați cîmpuri CANDIDAT și AUTO`)
       setClickStart(true)
       return
     }
@@ -124,7 +124,8 @@ const Timer = () => {
   }, [startTime, endTime]);
 
   return (
-    <div>
+    // <div style={{marginTop : '1rem'}}>
+    <div style={{marginTop : '0.5rem'}}>
 
       {((candidat === null || carnumber === null) && clickStart === true)  &&
       <Alert

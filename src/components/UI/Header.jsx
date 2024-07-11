@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect, useRef} from 'react';
 import { Flex, Modal } from 'antd';
 import { useSelector,useDispatch } from 'react-redux';
 import SelectCandidat from './SelectCandidat';
@@ -13,6 +13,7 @@ const Header = () => {
   const user = useSelector((state) => state.auth.user);
   const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled);
   const dispatch = useDispatch()
+  const headerRef = useRef(null);
 
   const showConfirm = () => {
     Modal.confirm({
@@ -44,8 +45,13 @@ const Header = () => {
     }
   };
 
+  useEffect(() => {
+    // const headerHeight = headerRef.current.clientHeight;
+    // console.log('headerHeight from header ',headerHeight)
+  },[])
+
   return (
-    <div style={{ display: 'block', color: 'white', margin: '0 auto', maxWidth: '1280px', minWidth: '600px', position: 'relative', padding: '15px' }}>
+    <div  style={{ display: 'block', color: 'white', margin: '0 auto', maxWidth: '1280px', minWidth: '600px', position: 'relative', padding: '15px' }}>
       <Flex justify='space-between' align='center' style={{ maxWidth: '1280px', fontSize: '1rem' }}>
         <div onClick={handleClick} className='examiner'>
           {/* <span className='text_static_header'>Ex. </span> */}
