@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Collapse, Button, Modal, message, notification } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsAuth, setUser } from '../../app/authSlice';
+import { SendOutlined,SaveOutlined } from '@ant-design/icons';
 import { setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics } from '../../app/dlSlice';
 
 const { confirm, info } = Modal;
@@ -36,6 +37,7 @@ const Coll = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
   const headerRef = useRef(null);
+  const headerHeight = useSelector((state) => state.dl.headerHeight)
 
   useEffect(() => {
     if(failedExam === false && punctele >= 21){
@@ -53,11 +55,12 @@ const Coll = () => {
 
   useEffect(() => {
     if (stopExamen && punctele >= 21) {
-      showModal('EXAMEN NU A FOST SUSȚINUT', `Ați atins limita de puncte de penalizare ${punctele}. Examenul a eșuat`);
+      // showModal('EXAMEN NU A FOST SUSȚINUT', `Ați atins limita de puncte de penalizare. TOTAL: ${punctele}. Examenul a eșuat`);
+      showModal('EXAMEN NU A FOST SUSȚINUT', `Ați atins limita de puncte de penalizare ${punctele}. Examenul a eșuat`,'error');
       return;
     } 
     if (stopExamen && punctele < 21) {
-      showModal('SUSȚINUT', 'Examenul a fost promovat cu succes!');
+      showModal('SUSȚINUT', 'Examenul a fost promovat cu succes!','success');
       return;
     }
   }, [stopExamen, punctele]);
@@ -111,9 +114,9 @@ const Coll = () => {
     });
   };
 
-  const showModal = (title, content) => {
-    Modal.info({
-      title: title,
+  const showModal = (title, content,status) => {
+    Modal[status]({
+      title: title,      
       content: (
         <div>
           <p>{content}</p>
@@ -122,15 +125,28 @@ const Coll = () => {
             <div>
               <h3>Lista erorilor</h3>
               <ul>
-                {statistics.map(({time, text, result}) => 
-                  <li key={Math.random() * Date.now()}>{time}. {text}. Penalizare: {result}</li>)
-                }
+                {statistics.map(({time, text, result},index, array) => 
+                  <li 
+                    key={Math.random() * Date.now()}
+                    style={{
+                      ...(index % 2 === 0 ? {background : '#D3D3D3', borderRadius : '0.2rem' } : {}),
+                      fontSize : '0.9rem',
+                      paddingBottom : '0.3rem'
+                    }}
+                  >                    
+                    {time}. {text}. Penalizare: {result}
+                  </li>
+                )}
               </ul>
             </div> : <h2>Bravo nici o eroare</h2>
           }
         </div>
+      ),            
+      okText: (
+      <>
+        <SaveOutlined /> Close
+      </>
       ),
-      okText: 'Close',
       onOk() {
         setTimeout(() => {
           dispatch(setIsAuth(false));
@@ -153,7 +169,7 @@ const Coll = () => {
     if (activeKey !== null) {
       const timer = setTimeout(() => {
         if (activeKey.length > 0) {
-          const headerHeight = headerRef.current.clientHeight;
+          //const headerHeight = headerRef.current.clientHeight;
           const targetElement = document.querySelectorAll(".ant-collapse-item")[Number(activeKey[0]) - 1];
 
           console.log(activeKey[0] - 1);
@@ -162,7 +178,7 @@ const Coll = () => {
           console.log('-----');
 
           window.scroll({
-            top: targetElement.offsetTop - headerHeight -156,
+            top: targetElement.offsetTop - headerHeight ,
             left: 0,
             behavior: 'smooth'
           });
@@ -218,7 +234,7 @@ const Coll = () => {
   }));
 
   return (
-    <div className='enabledButton'>
+    <div style={{marginTop : headerHeight}}>
       <div ref={headerRef} className='headerMain'></div>
       {contextHolder}      
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>        

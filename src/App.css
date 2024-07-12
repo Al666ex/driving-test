@@ -94,6 +94,8 @@
 :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {  
   color: var(--color-white);
   background: rgba(161,21,207, 0.5);
+  padding: 1.5rem;
+  font-size: x-large;
 }
 
 .modal{
@@ -139,10 +141,10 @@
   opacity: 0.4;
 }
 
-.enabledButton{
+/* .enabledButton{
   margin-top: 150px;
   overflow: auto;
-}
+} */
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-title {
   font-size: 1.2rem;
