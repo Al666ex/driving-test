@@ -31,7 +31,7 @@ const Auth = () => {
 
   return (
     //  <div className='modal'>
-     <div>
+     <div className='modal'>
       {loading ? (
         <Spin />
       ) : (
