@@ -312,3 +312,13 @@
 :where(.css-zg0ahe).ant-collapse>.ant-collapse-item>.ant-collapse-header { 
   flex-direction: row-reverse;
 }
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1rem;
+  }
+
+  .authButton {
+    width: 100%;
+  }
+}
