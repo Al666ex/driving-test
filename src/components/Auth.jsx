@@ -30,7 +30,8 @@ const Auth = () => {
   };
 
   return (
-    <div className='modal' style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    //  <div className='modal'>
+     <div>
       {loading ? (
         <Spin />
       ) : (
@@ -39,7 +40,7 @@ const Auth = () => {
           initialValues={{ username: email, password }}
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          style={{ width: '90%', maxWidth: '600px' }} // Используем процентную ширину и максимальную ширину
+          style={{  maxWidth: '375px' }} // Используем процентную ширину и максимальную ширину
           autoComplete="off"
         >
           <Form.Item
@@ -60,7 +61,7 @@ const Auth = () => {
 
           <Form.Item wrapperCol={{ span: 24 }} style={{ textAlign: 'right' }}>
             <Button
-              icon={<LoginOutlined style={{ fontSize: '1.5em' }} />}
+              icon={<LoginOutlined style={{ fontSize: '1.5rem' }} />}
               type="primary"
               onClick={click}
               className='authButton'

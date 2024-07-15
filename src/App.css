@@ -18,7 +18,7 @@
 
 .authButton{
   padding: 1.5rem;
-  font-size: x-large;
+  font-size: x-large;  
 }
 
 .text_static_header{
@@ -91,13 +91,23 @@
   justify-content: center;
 }
 
+:where(.css-dev-only-do-not-override-zg0ahe).ant-btn {
+  height: auto;
+}
+
 :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {  
   color: var(--color-white);
   background: rgba(161,21,207, 0.5);
-  padding: 1.5rem;
+  padding: 0.7rem;
   font-size: x-large;
 }
 
+.modal2{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .modal{
   position: fixed; top: 50%; left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -232,7 +242,7 @@
 :where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-control-input {
   position: relative;
   display: flex;
-  min-height: 32px;
+  /* min-height: 32px; */
   align-self: stretch;
   align-items: flex-start;
 }
@@ -242,29 +252,29 @@
 }
 
 :where(.css-zg0ahe).ant-btn-default {
-  padding: 1.5rem;
+  padding: 1.4rem;
   font-size: x-large;
   background: #faad14;
 }
 
 :where(.css-zg0ahe).ant-btn-primary {
-  padding: 1.5rem;
+  padding: 1.4rem;
   font-size: x-large;
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-default {
-  padding: 1.5rem;
+  padding: 1.4rem;
   font-size: x-large; 
   background: #faad14; 
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns .ant-btn+.ant-btn {
-  padding: 1.5rem;
+  padding: 1.4rem;
   font-size: x-large;  
 }
 
 :where(.css-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns .ant-btn+.ant-btn { 
-  padding: 1.5rem;
+  padding: 1.4rem;
   padding: x-large; 
 }
 
@@ -313,12 +323,20 @@
   flex-direction: row-reverse;
 }
 
+:where(.css-dev-only-do-not-override-zg0ahe).ant-row {
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {  
+  font-size: 1.3rem;
+}
+
 @media (max-width: 768px) {
   .modal {
-    padding: 1rem;
+    /* padding: 1rem; */
   }
 
-  .authButton {
+  /* .authButton {
     width: 100%;
-  }
+  } */
 }

@@ -12,14 +12,11 @@ function App() {
   const isAuth = useSelector((state) => state.auth.isAuth)
   const punctele = useSelector((state) => state.dl.punctele)
 
-  // console.log('isAuth',isAuth)
-  // console.log('heigth ', window.innerHeight)
-
   return (
-    <div >
+    <div>
       {
         !isAuth ? 
-          <Auth /> :
+          <div className='modal'><Auth /></div> :
             <div >              
                 <div className={punctele >=21 ? 'headerMainFailed' : 'headerMain'}>
                   <Header />
