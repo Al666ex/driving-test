@@ -282,13 +282,21 @@
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
   padding: 1.1rem 1.4rem;
+  flex-direction: row-reverse;
 }
 
 :where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
   padding: 1.1rem 1.4rem;
 }
 
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-arrow {
+  transform: rotate(180deg);  
+}
+
 :where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
   height: 2rem;
 }
 
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-header-text { 
+  text-align: left;
+}

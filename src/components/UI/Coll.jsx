@@ -216,8 +216,8 @@ const Coll = () => {
             {(penalizare.id === selectedId && stopExamen === false) ?
               <>
                 <div style={{ width: '76%', textAlign: 'left', fontSize: 'x-large' }}>{penalizare.id} {penalizare.text}</div>
-                <div style={{ width: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                </div>
+                {/* <div style={{ width: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                </div> */}
               </>
               :
               <>
