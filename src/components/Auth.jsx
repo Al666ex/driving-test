@@ -40,7 +40,7 @@ const Auth = () => {
           initialValues={{ username: email, password }}
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          style={{  maxWidth: '375px' }} // Используем процентную ширину и максимальную ширину
+          // style={{  maxWidth: '375px' }}
           autoComplete="off"
         >
           <Form.Item

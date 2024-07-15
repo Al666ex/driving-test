@@ -331,6 +331,31 @@
   font-size: 1.3rem;
 }
 
+:where(.css-zg0ahe).ant-form-item .ant-form-item-label >label::after {
+  display: none;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label::after {
+  display: none;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-horizontal .ant-form-item-label {
+  padding-right: 0.8rem;
+}
+
+:where(.css-zg0ahe).ant-form-horizontal .ant-form-item-label { 
+  padding-right: 0.8rem;
+}
+
+:where(.css-zg0ahe).ant-form-item .ant-form-item-label>label {
+  padding-right: 0.8rem;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form {
+  width: 320px;
+  height: 280px;
+}
+
 @media (max-width: 768px) {
   .modal {
     /* padding: 1rem; */
@@ -340,3 +365,11 @@
     width: 100%;
   } */
 }
+
+/* @media (max-width: 540px) {
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
+    width: 320px;
+    height: 280px;
+
+}
+} */
