@@ -364,6 +364,24 @@
   height: 280px;
 }
 
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item>.ant-collapse-header { 
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header {
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
+  padding-inline-end: 0px;
+  padding-inline-start: 3px;
+}
+
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
+  padding-inline-start: 3px;
+  padding-inline-end: 0px;
+}
+
 @media (max-width: 768px) {
   .modal {
     /* padding: 1rem; */
