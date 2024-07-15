@@ -297,6 +297,18 @@
   height: 2rem;
 }
 
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-arrow {
+  transform: rotate(180deg);
+}
+
 :where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-header-text { 
   text-align: left;
+}
+
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-header-text { 
+  text-align: left;
+}
+
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item>.ant-collapse-header { 
+  flex-direction: row-reverse;
 }
