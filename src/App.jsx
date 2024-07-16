@@ -13,18 +13,18 @@ function App() {
   const punctele = useSelector((state) => state.dl.punctele)
 
   return (
-    <div>
+    <>
       {
         !isAuth ? 
-          <div className='modal'><Auth /></div> :
-            <div >              
+          <Auth /> :
+            <div className='main'>              
                 <div className={punctele >=21 ? 'headerMainFailed' : 'headerMain'}>
                   <Header />
                 </div>
                 <Coll />
             </div>
       }
-    </div>
+    </>
     
   );
 }

@@ -296,7 +296,7 @@ export const dlSlice = createSlice({
             },
             {
               id: 13,
-              title: 'PIERDEREA CONTROLULUI ASUPRA VEHICULULUI',
+              title: 'PIERDEREA CONTROLULUI ASUPRA VEHICULULUI ŞI/SAU INTERVENŢIA EXAMINATORULUI PENTRU A EVITA UN PERICOL IMINENT SAU PRODUCEREA UNUI ACCIDENT RUTIER; MANIFESTĂRI ALE CANDIDATULUI CARE PROVOACĂ PERTURBAREA EXAMENULUI',
               penalizare: [
                 {
                   id: '13.1',

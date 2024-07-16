@@ -1,29 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Collapse, Button, Modal, message, notification } from 'antd';
+import { Collapse, Modal, notification } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsAuth, setUser } from '../../app/authSlice';
-import { SendOutlined,SaveOutlined } from '@ant-design/icons';
 import { setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics } from '../../app/dlSlice';
-
+import { SaveOutlined } from '@ant-design/icons';
 const { confirm, info } = Modal;
 
 const Coll = () => {
-  const [failedExam,setFailedExam] = useState(false)
+  const [failedExam, setFailedExam] = useState(false);
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.error({
-      message: (        
+      message: (
         <span style={{ color: 'black' }}>
           EXAMEN NU A FOST SUSȚINUT
         </span>
       ),
-      description: (        
+      description: (
         <span style={{ color: 'black' }}>
           Ați atins limita de puncte de penalizare. Examenul a eșuat.
         </span>
       ),
       style: {
-        backgroundColor : 'var(--color-white)'
+        backgroundColor: 'var(--color-white)'
       },
     });
   };
@@ -37,14 +36,14 @@ const Coll = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
   const headerRef = useRef(null);
-  const headerHeight = useSelector((state) => state.dl.headerHeight)
+  const headerHeight = useSelector((state) => state.dl.headerHeight);
 
   useEffect(() => {
-    if(failedExam === false && punctele >= 21){
-      failedExam,setFailedExam(true)
-      openNotification()
+    if (failedExam === false && punctele >= 21) {
+      setFailedExam(true);
+      openNotification();
     }
-  },[punctele])
+  }, [punctele]);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -55,12 +54,11 @@ const Coll = () => {
 
   useEffect(() => {
     if (stopExamen && punctele >= 21) {
-      // showModal('EXAMEN NU A FOST SUSȚINUT', `Ați atins limita de puncte de penalizare. TOTAL: ${punctele}. Examenul a eșuat`);
-      showModal('EXAMEN NU A FOST SUSȚINUT', `Ați atins limita de puncte de penalizare ${punctele}. Examenul a eșuat`,'error');
+      showModal('EXAMEN NU A FOST SUSȚINUT', `Ați atins limita de puncte de penalizare ${punctele}. Examenul a eșuat`, 'error');
       return;
-    } 
+    }
     if (stopExamen && punctele < 21) {
-      showModal('SUSȚINUT', 'Examenul a fost promovat cu succes!','success');
+      showModal('SUSȚINUT', 'Examenul a fost promovat cu succes!', 'success');
       return;
     }
   }, [stopExamen, punctele]);
@@ -71,9 +69,9 @@ const Coll = () => {
   };
 
   const handleClickOutside = (event) => {
-    if (!event.target.closest('.penalizare-item') && 
-        !event.target.closest('.ant-modal') && 
-        !event.target.closest('.ant-modal-wrap')) {
+    if (!event.target.closest('.penalizare-item') &&
+      !event.target.closest('.ant-modal') &&
+      !event.target.closest('.ant-modal-wrap')) {
       setSelectedId(null);
     }
   };
@@ -114,38 +112,38 @@ const Coll = () => {
     });
   };
 
-  const showModal = (title, content,status) => {
+  const showModal = (title, content, status) => {
     Modal[status]({
-      title: title,      
+      title: title,
       content: (
         <div>
           <p>{content}</p>
           {
             statistics.length ?
-            <div>
-              <h3>Lista erorilor</h3>
-              <ul>
-                {statistics.map(({time, text, result},index, array) => 
-                  <li 
-                    key={Math.random() * Date.now()}
-                    style={{
-                      ...(index % 2 === 0 ? {background : '#D3D3D3', borderRadius : '0.2rem' } : {}),
-                      fontSize : '0.9rem',
-                      paddingBottom : '0.3rem'
-                    }}
-                  >                    
-                    {time}. {text}. Penalizare: {result}
-                  </li>
-                )}
-              </ul>
-            </div> : <h2>Bravo nici o eroare</h2>
+              <div>
+                <h3>Lista erorilor</h3>
+                <ul>
+                  {statistics.map(({ time, text, result }, index) =>
+                    <li
+                      key={Math.random() * Date.now()}
+                      style={{
+                        ...(index % 2 === 0 ? { background: '#D3D3D3', borderRadius: '0.2rem' } : {}),
+                        fontSize: '0.9rem',
+                        paddingBottom: '0.3rem'
+                      }}
+                    >
+                      {time}. {text}. Penalizare: {result}
+                    </li>
+                  )}
+                </ul>
+              </div> : <h2>Bravo nici o eroare</h2>
           }
         </div>
-      ),            
+      ),
       okText: (
-      <>
-        <SaveOutlined /> Close
-      </>
+        <>
+          <SaveOutlined /> Close
+        </>
       ),
       onOk() {
         setTimeout(() => {
@@ -169,7 +167,6 @@ const Coll = () => {
     if (activeKey !== null) {
       const timer = setTimeout(() => {
         if (activeKey.length > 0) {
-          //const headerHeight = headerRef.current.clientHeight;
           const targetElement = document.querySelectorAll(".ant-collapse-item")[Number(activeKey[0]) - 1];
 
           console.log(activeKey[0] - 1);
@@ -178,7 +175,7 @@ const Coll = () => {
           console.log('-----');
 
           window.scroll({
-            top: targetElement.offsetTop - headerHeight ,
+            top: targetElement.offsetTop - headerHeight,
             left: 0,
             behavior: 'smooth'
           });
@@ -189,13 +186,45 @@ const Coll = () => {
     }
   }, [activeKey]);
 
+  useEffect(() => {
+    const collapseHeaders = document.querySelectorAll('.ant-collapse-header');
+    collapseHeaders.forEach((header) => {
+      const svg = header.querySelector('svg');
+      if (svg) {
+        if (header.parentElement.classList.contains('ant-collapse-item-active')) {
+          console.log('contains:ant-collapse-item-active ')
+          svg.classList.add('rotate-90');             
+        } else {
+          svg.classList.remove('rotate-90');
+        }
+      }
+    });
+  },[activeKey])
+
+
+  const handleCollapseChange = (key) => {
+    setActiveKey(key);
+    // const collapseHeaders = document.querySelectorAll('.ant-collapse-header');
+    // collapseHeaders.forEach((header) => {
+    //   const svg = header.querySelector('svg');
+    //   if (svg) {
+    //     if (header.parentElement.classList.contains('ant-collapse-item-active')) {
+    //       console.log('contains:ant-collapse-item-active ')
+    //       svg.classList.add('rotate-90');             
+    //     } else {
+    //       svg.classList.remove('rotate-90');
+    //     }
+    //   }
+    // });
+  };
+
   const items = list.map((param) => ({
     key: param.id,
     label: `${param.id}. ${param.title}`,
     style: { fontSize: '1.3rem', color: 'white' },
     children: (
       <>
-        {param.penalizare.map((penalizare, index, array) => (
+        {param.penalizare.map((penalizare, index) => (
           <div
             key={penalizare.id}
             className={'notSelectedId'}
@@ -206,18 +235,16 @@ const Coll = () => {
               transition: 'transform 0.3s',
               cursor: 'pointer',
               position: 'relative',
-              fontSize :'1.3rem',
-              paddingTop : '0.8rem',
-              paddingBottom : '0.8rem',              
-              ...(index % 2 === 0 ? {background : '#D3D3D3', borderRadius : '0.2rem' } : {}) // even index / odd index 
+              fontSize: '1.3rem',
+              paddingTop: '0.8rem',
+              paddingBottom: '0.8rem',
+              ...(index % 2 === 0 ? { background: '#D3D3D3', borderRadius: '0.2rem' } : {})
             }}
             onClick={() => handleItemClick(penalizare.id, penalizare.text)}
           >
             {(penalizare.id === selectedId && stopExamen === false) ?
               <>
                 <div style={{ width: '76%', textAlign: 'left', fontSize: 'x-large' }}>{penalizare.id} {penalizare.text}</div>
-                {/* <div style={{ width: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                </div> */}
               </>
               :
               <>
@@ -234,16 +261,15 @@ const Coll = () => {
   }));
 
   return (
-    <div style={{marginTop : headerHeight}}>
-      <div ref={headerRef} className='headerMain'></div>
-      {contextHolder}      
-      <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>        
-        <Collapse          
-          style={{ height: 'auto', scroll: 'auto', }}
+    <div style={{ marginTop: headerHeight }}>
+      {contextHolder}
+      <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>
+        <Collapse
+          style={{ height: 'auto', scroll: 'auto' }}
           accordion
           items={items}
           activeKey={activeKey}
-          onChange={(key) => setActiveKey(key)}
+          onChange={handleCollapseChange}
         />
       </div>
     </div>
