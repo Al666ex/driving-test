@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev2": "vite --host=10.12.89.43",
+    "dev2": "vite --host=92.115.180.180",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "vite build",
