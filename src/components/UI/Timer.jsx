@@ -39,17 +39,16 @@ const Timer = () => {
     
   // },[punctele])
 
-  useEffect(() => {
-    if(candidat !== null){
-      const findCandidat = mocksSolicitants.find((item) => item.name === candidat)
-      if(findCandidat){
-        // setCategoria(findCandidat.category)
-        setCandidatFields({category : findCandidat.category, typeCV : findCandidat.typeCV})
-      }
+  // useEffect(() => {
+  //   if(candidat !== null){
+  //     const findCandidat = mocksSolicitants.find((item) => item.name === candidat)
+  //     if(findCandidat){        
+  //       setCandidatFields({category : findCandidat.category, typeCV : findCandidat.typeCV})
+  //     }
       
-      return 
-    }
-  },[candidat])
+  //     return 
+  //   }
+  // },[candidat])
 
   const confirmStart = () => {
     // candidat === null ?
@@ -127,7 +126,7 @@ const Timer = () => {
     // <div style={{marginTop : '1rem'}}>
     <div style={{marginTop : '0.5rem'}}>
 
-      {((candidat === null || carnumber === null) && clickStart === true)  &&
+      {/* {((candidat === null || carnumber === null) && clickStart === true)  &&
       <Alert
         message="Text de avertizare"
         style={{position : 'absolute', zIndex : '10', width : '75%'}}
@@ -136,7 +135,7 @@ const Timer = () => {
         type="warning"        
         onClose={() => {setClickStart(false)}}
         closable
-      />} 
+      />}  */}
  
       <Flex align='center' justify='space-between' style={{width : '100%', color : 'white', margin : '5px 0px'}}>
         

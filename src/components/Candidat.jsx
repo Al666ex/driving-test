@@ -1,16 +1,33 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import SelectCandidat from './UI/SelectCandidat';
 import SelectAuto from './UI/SelectAuto';
-import { Flex, Modal } from 'antd';
+import { Flex, Modal, Alert } from 'antd';
 import {LogoutOutlined,HomeOutlined,CheckOutlined,RightOutlined } from '@ant-design/icons'
 import { setIsAuth, setUser } from '../app/authSlice';
-import { setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight, setPage } from '../app/dlSlice';
+import {  setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight, setPage } from '../app/dlSlice';
 
 const Candidat = () => {
+  const [candidatFields, setCandidatFields] = useState(null)
+  const [worning,setWarning] = useState('')
+  const [nextPage, setNextPage] = useState(false)
+    const mocksSolicitants = useSelector((state) => state.dl.mocksSolicitants)
     const user = useSelector((state) => state.auth.user);    
     const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled);  
+    const candidat = useSelector((state) => state.dl.candidat)
+    const carnumber = useSelector((state) => state.dl.carnumber)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+      if(candidat !== null){
+        const findCandidat = mocksSolicitants.find((item) => item.name === candidat)
+        if(findCandidat){        
+          setCandidatFields({category : findCandidat.category, typeCV : findCandidat.typeCV})
+        }
+        
+        return 
+      }
+    },[candidat])
 
     const showConfirm = () => {
         Modal.confirm({
@@ -43,6 +60,12 @@ const Candidat = () => {
       };
 
       const handleClickRight = () => {
+        if(candidat === null || carnumber === null){
+          setWarning(`Completați cîmpuri CANDIDAT și AUTO`)          
+          return
+        }
+
+        setNextPage(true)
         dispatch(setPage(3))
       }
     
@@ -50,6 +73,17 @@ const Candidat = () => {
     <>
     <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
     <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
+    {/* {((candidat === null || carnumber === null) && clickStart === true)  && */}
+    {(worning )  &&
+      <Alert
+        message="Text de avertizare"
+        style={{position : 'absolute', zIndex : '10', width : '75%'}}
+        description={worning}
+        showIcon
+        type="warning"        
+        onClose={() => {setWarning('')}}
+        closable
+      />} 
     <div className='candidat'>
         
         <div  className='examiner' >          
