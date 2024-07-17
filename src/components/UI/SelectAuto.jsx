@@ -14,15 +14,15 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
   const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled)  
   const dispatch = useDispatch()
 
-  const inputStyle = {
-    width: carnumber === null ? 130 :  carnumber.lenght,
+  // const inputStyle = {
+  //   width: carnumber === null ? 130 :  carnumber.lenght,
     
-    fontWeight: 'bolder',
-    fontSize: 'large',
-    padding: '0px 5px',    
-    color: fieldsDisabled ? '#000000e0' : 'black',
-    backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white', 
-  };
+  //   fontWeight: 'bolder',
+  //   fontSize: 'large',
+  //   padding: '0px 5px',    
+  //   color: fieldsDisabled ? '#000000e0' : 'black',
+  //   backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white', 
+  // };
 
   const handleChange = (value) => { dispatch(setCarnumber(value)) };
   
@@ -38,7 +38,8 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
             defaultValue={defaultValue}
             placeholder={'AUTO'}            
             style={{              
-              width: carnumber === null ? 100 :  carnumber.lenght,
+              width
+              //width: carnumber === null ? 100 :  carnumber.lenght,
               // backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white',
             }}
             onChange={handleChange}

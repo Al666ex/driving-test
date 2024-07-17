@@ -13,6 +13,23 @@
   font-size: x-large;  
 }
 
+.logout{
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 3rem;
+  color: var(--color-static-text);
+}
+
+.stepRight{
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  color: var(--color-static-text);
+}
+
+
 .main{
   max-width: 1280px;
   /* min-width: 600px;   */
@@ -33,6 +50,7 @@
   border: 1px var(--color-white) solid;
   border-radius: 5px;
   padding: 5px 10px;
+  margin-bottom: 3rem;
 }
 
 .headerMain{
@@ -45,6 +63,11 @@
   opacity: 1;
   z-index: 100; 
   background-size: cover;
+}
+
+.inputSize{
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .headerMainFailed{
@@ -106,11 +129,14 @@
   font-size: x-large;
 }
 
-.modal2{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.candidat{
+  position: absolute; top: 50%; left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 350px;
+  font-size: 2rem;
+  color: var(--color-white);
 }
 .modal{
   position: absolute; top: 50%; left: 50%;
@@ -146,7 +172,7 @@
 
 .query__params{
   margin-right: 5px;
-  font-size: 1.5rem;    
+  font-size: 2rem;    
   color: var(--color-static-text);  
 }
 
@@ -154,11 +180,6 @@
   pointer-events: none; 
   opacity: 0.4;
 }
-
-/* .enabledButton{
-  margin-top: 150px;
-  overflow: auto;
-} */
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-modal-confirm .ant-modal-confirm-title {
   font-size: 1.2rem;
@@ -332,7 +353,7 @@
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {  
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
 }
 
 :where(.css-zg0ahe).ant-form-item .ant-form-item-label >label::after {
@@ -347,17 +368,22 @@
   padding-right: 0.8rem;
 }
 
-:where(.css-zg0ahe).ant-form-horizontal .ant-form-item-label { 
-  padding-right: 0.8rem;
-}
 
 :where(.css-zg0ahe).ant-form-item .ant-form-item-label>label {
-  padding-right: 0.8rem;
+  /* padding-right: 0.8rem; */
+  /* height: auto; */
+  font-size: 1.5rem;
+  color: #bbd3f6;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {
+  font-size: 1.5rem;
+  color: #bbd3f6;
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
-  width: 320px;
-  height: 280px;
+  /* width: 320px; */
+  /* height: 280px; */
 }
 
 :where(.css-zg0ahe).ant-collapse>.ant-collapse-item>.ant-collapse-header { 
@@ -386,20 +412,76 @@
   transform: rotate(-90deg) !important;
 }
 
-@media (max-width: 768px) {
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Высота экрана */
+}
+
+.ant-select-show-search:where(.css-dev-only-do-not-override-zg0ahe).ant-select:not(.ant-select-customize-input) .ant-select-selector { 
+  font-size: 1.5rem;
+}
+
+@media (max-width: 320px) {  
   .modal {
-    /* padding: 1rem; */
+    width: 75%;
+  }
+  .candidat{
+    width: 70%;
+    font-size: 1.2rem;
   }
 
-  /* .authButton {
+  .ant-select-show-search:where(.css-dev-only-do-not-override-zg0ahe).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    font-size: 1rem;
+  }
+  .query__params {
+    margin-right: 5px;
+    font-size: 1.2rem;
+    color: var(--color-static-text);
+}
+}
+
+@media (max-width: 480px) {  
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
     width: 100%;
+  }
+  .modal {
+    width: 85%;
+  }
+  .candidat{
+    width: 90%;
+  }
+}
+
+/* От ландшафтного экрана телефона до потретного планшета */
+@media (max-width: 767px) { 
+
+}
+
+/* От портретного планшета до ландшафтного экрана и настольных дисплеев */
+/* @media (min-width: 768px) and (max-width: 979px) {   */
+@media (min-width: 768px) and (max-width: 1024px) {   
+  
+  .inputSize {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {
+    font-size: 1.5rem;
+    color: #bbd3f6;
+  }
+
+  /* .modal {
+    width: 400px;
   } */
 }
 
-/* @media (max-width: 540px) {
-  :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
-    width: 320px;
-    height: 280px;
+/* Большой дисплей */
+@media (min-width: 1200px) {  
+  /* .modal {
 
-}
+    width: 60%;
+
 } */
+}

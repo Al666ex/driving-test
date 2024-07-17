@@ -321,7 +321,8 @@ export const dlSlice = createSlice({
         stopExamen : false,
         fieldsDisabled : false,
         statistics : [],
-        headerHeight : null
+        headerHeight : null,
+        page : 1
     },
     reducers : {
 
@@ -415,6 +416,10 @@ export const dlSlice = createSlice({
         setHeaderHeight : (state, action) => {
           state.headerHeight = action.payload
           return;
+        },
+        setPage : (state, action) => {
+          state.page = action.payload
+          return;
         }
        
     }    
@@ -429,7 +434,8 @@ export const {
     setStopExamen,
     setFieldsDisabled,
     setStatistics,
-    setHeaderHeight
+    setHeaderHeight,
+    setPage
 } = dlSlice.actions
 
 export default dlSlice.reducer

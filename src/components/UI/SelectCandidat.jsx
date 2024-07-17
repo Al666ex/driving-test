@@ -16,15 +16,15 @@ const SelectCandidat = ({width = 100, defaultValue=null}) => {
   const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled)  
   const dispatch = useDispatch()
 
-  const inputStyle = {
-    width: candidat === null ? 130 :  candidat.lenght,
+  // const inputStyle = {
+  //   width: candidat === null ? 130 :  candidat.lenght,
     
-    fontWeight: 'bolder',
-    fontSize: 'large',
-    padding: '0px 5px',    
-    color: fieldsDisabled ? '#000000e0' : 'black',
-    backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white', 
-  };
+  //   fontWeight: 'bolder',
+  //   fontSize: 'large',
+  //   padding: '0px 5px',    
+  //   color: fieldsDisabled ? '#000000e0' : 'black',
+  //   backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white', 
+  // };
 
   const handleChange = (value) => { dispatch(setCandidat(value)) };
   
@@ -39,8 +39,9 @@ const SelectCandidat = ({width = 100, defaultValue=null}) => {
             showSearch            
             defaultValue={defaultValue}
             placeholder={'CANDIDAT'}            
-            style={{              
-              width: candidat === null ? 130 :  candidat.lenght,
+            style={{   
+              width
+              // width: candidat === null ? 130 :  candidat.lenght,
               // backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white',
             }}
             onChange={handleChange}

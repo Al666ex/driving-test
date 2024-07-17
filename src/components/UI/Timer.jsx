@@ -140,8 +140,6 @@ const Timer = () => {
  
       <Flex align='center' justify='space-between' style={{width : '100%', color : 'white', margin : '5px 0px'}}>
         
-        <div style={{fontSize : '1.2rem'}}>SCCA CHIŞINĂU</div>        
-        
         <div className={hideButton === true ? 'hideTime' : 'center'}>
           {
             !isRunning ? (
@@ -166,10 +164,6 @@ const Timer = () => {
           )
           }
         </div>
-        <Flex vertical justify='flex-start'>
-          <div className='scca_categoria'><span className='text_static_header'>TIPUL </span> {candidatFields!==null ? candidatFields.typeCV : ''}</div>
-          <div className='scca_categoria'><span className='text_static_header'>CATEGORIA</span> {candidatFields!==null ? candidatFields.category : ''}</div>
-        </Flex>
       </Flex>
 
       {startTime && (
@@ -178,14 +172,16 @@ const Timer = () => {
             <ClockCircleOutlined  className='custom-icon' />
             <div className='timer'> {toAddZero(differenceInMinutes)}:{toAddZero(differenceInSeconds)}</div>
           </Flex>
-          <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} /></div>
+          <div className='puncteleAcumulate'>Punctele <StyledComponent punctele={punctele} /></div>
+          {/* <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} /></div> */}
         </div>
       )}
 
       {!isRunning && (finalDifferenceInMinutes > 0 || finalDifferenceInSeconds > 0) && (
         <div style={{display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
           <div className='timer'>Durata examenului {toAddZero(finalDifferenceInMinutes)}:{toAddZero(finalDifferenceInSeconds)} </div>
-          <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} />
+          {/* <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} /> */}
+          <div className='puncteleAcumulate'>Punctele <StyledComponent punctele={punctele} />
           </div>          
         </div>          
       )}
