@@ -83,7 +83,7 @@ const Coll = () => {
       title: (
         <div>
           <div>Ești sigur că dorești să adaugi punctele de penalizare??</div>
-          <div style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>{id}. {text}</div>
+          <div className='confirmItem'>{id}. {text}</div>
         </div>
       ),
       width: '900px',
@@ -94,7 +94,7 @@ const Coll = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh',
+          // height: '100vh',
           width: '100%'
         }}>
           {modal}

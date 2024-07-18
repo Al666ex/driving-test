@@ -469,6 +469,11 @@ body.hide-scrollbar {
   color: gainsboro;
 }
 
+.confirmItem{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 320px) {  
   .modal {
     width: 75%;
@@ -514,6 +519,11 @@ body.hide-scrollbar {
     width : 72%;
     text-align: left;
   }
+
+  .confirmItem{    
+    font-size: 1.2rem;
+  }
+
 }
 
 /* От ландшафтного экрана телефона до потретного планшета */
