@@ -8,6 +8,10 @@
   font-family: -apple-system\, BlinkMacSystemFont;  
 }
 
+body.hide-scrollbar {
+  overflow: hidden;
+}
+
 .authButton{
   padding: 1.5rem;
   font-size: x-large;  

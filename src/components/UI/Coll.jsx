@@ -38,6 +38,8 @@ const Coll = () => {
   const collRef = useRef(null);
   const headerHeight = useSelector((state) => state.dl.headerHeight);
 
+  
+
   useEffect(() => {
     if (failedExam === false && punctele >= 21) {
       setFailedExam(true);
@@ -177,7 +179,8 @@ const Coll = () => {
 
           window.scroll({
             top: targetElement.offsetTop - headerHeight,
-            left: 0,
+            left: 0,            
+            color : 'transparent',
             behavior: 'smooth'
           });
         }
@@ -255,7 +258,7 @@ const Coll = () => {
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>
         <Collapse
          
-          style={{ height: 'auto', scroll: 'auto' }}
+          // style={{ height: 'auto', scroll: 'auto' }}
           accordion
           items={items}
           activeKey={activeKey}
