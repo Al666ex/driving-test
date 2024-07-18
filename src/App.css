@@ -525,6 +525,7 @@ body.hide-scrollbar {
   }
   .candidat{
     width: 90%;
+    position: fixed;
   }
 
   .notSelectedId {
