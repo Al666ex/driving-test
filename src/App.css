@@ -134,7 +134,7 @@ body.hide-scrollbar {
 }
 
 .candidat{
-  position: absolute; top: 50%; left: 50%;
+  position: fixed; top: 50%; left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -524,8 +524,7 @@ body.hide-scrollbar {
     width: 85%;
   }
   .candidat{
-    width: 90%;
-    position: fixed;
+    width: 90%;    
   }
 
   .notSelectedId {
