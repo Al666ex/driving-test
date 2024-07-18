@@ -35,7 +35,7 @@ const Coll = () => {
   const dispatch = useDispatch();
   const [selectedId, setSelectedId] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
-  const headerRef = useRef(null);
+  const collRef = useRef(null);
   const headerHeight = useSelector((state) => state.dl.headerHeight);
 
   useEffect(() => {
@@ -174,6 +174,7 @@ const Coll = () => {
           console.log('headerHeight: ', headerHeight);
           console.log('-----');
 
+
           window.scroll({
             top: targetElement.offsetTop - headerHeight,
             left: 0,
@@ -204,18 +205,6 @@ const Coll = () => {
 
   const handleCollapseChange = (key) => {
     setActiveKey(key);
-    // const collapseHeaders = document.querySelectorAll('.ant-collapse-header');
-    // collapseHeaders.forEach((header) => {
-    //   const svg = header.querySelector('svg');
-    //   if (svg) {
-    //     if (header.parentElement.classList.contains('ant-collapse-item-active')) {
-    //       console.log('contains:ant-collapse-item-active ')
-    //       svg.classList.add('rotate-90');             
-    //     } else {
-    //       svg.classList.remove('rotate-90');
-    //     }
-    //   }
-    // });
   };
 
   const items = list.map((param) => ({
@@ -229,15 +218,15 @@ const Coll = () => {
             key={penalizare.id}
             className={'notSelectedId'}
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginBottom: '8px',
-              transition: 'transform 0.3s',
-              cursor: 'pointer',
-              position: 'relative',
-              fontSize: '1.3rem',
-              paddingTop: '0.8rem',
-              paddingBottom: '0.8rem',
+              // display: 'flex',
+              // justifyContent: 'space-between',
+              // marginBottom: '8px',
+              // transition: 'transform 0.3s',
+              // cursor: 'pointer',
+              // position: 'relative',
+              // fontSize: '1.3rem',
+              // paddingTop: '0.8rem',
+              // paddingBottom: '0.8rem',
               ...(index % 2 === 0 ? { background: '#D3D3D3', borderRadius: '0.2rem' } : {})
             }}
             onClick={() => handleItemClick(penalizare.id, penalizare.text)}
@@ -248,12 +237,12 @@ const Coll = () => {
               </>
               :
               <>
-                <div style={{ width: '10%' }}><strong>{penalizare.id}</strong></div>
-                <div style={{ width: '76%', textAlign: 'left' }}>{penalizare.text}</div>
+                <div className='accordion_penalizare_id'><strong>{penalizare.id}</strong></div>
+                <div className='accordion_penalizare_text'>{penalizare.text}</div>
               </>
             }
-            <div style={{ width: '7%' }}>{penalizare.result}</div>
-            <div style={{ width: '7%' }}>{penalizare.count}</div>
+            <div className='accordion_penalizare_result'>{penalizare.result}</div>
+            <div className='accordion_penalizare_count'>{penalizare.count}</div>
           </div>
         ))}
       </>
@@ -265,7 +254,8 @@ const Coll = () => {
       {contextHolder}
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>
         <Collapse
-          style={{ height: 'auto', scroll: 'auto' }}
+         
+          // style={{ height: 'auto', scroll: 'auto' }}
           accordion
           items={items}
           activeKey={activeKey}

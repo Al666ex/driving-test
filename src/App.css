@@ -154,8 +154,19 @@
 }
 
 .notSelectedId{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  transition: transform 0.3s;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.3rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+
+
   background: transparent;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 .custom-icon {
@@ -373,12 +384,22 @@
   /* padding-right: 0.8rem; */
   /* height: auto; */
   font-size: 1.5rem;
-  color: #bbd3f6;
+  color: var(--text-color);
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-form-item .ant-form-item-label >label {
   font-size: 1.5rem;
-  color: #bbd3f6;
+  color: var(--text-color);
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-arrow svg {  
+  color: aliceblue;
+}
+
+:where(.css-zg0ahe).ant-select-single.ant-select-show-arrow .ant-select-selection-item, :where(.css-zg0ahe).ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  font-size: large;
+  font-weight: 700;
+  color: #747373;
 }
 
 :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
@@ -423,6 +444,23 @@
   font-size: 1.5rem;
 }
 
+.accordion_penalizare_id{
+  width : 10%;
+ }
+  
+.accordion_penalizare_text{
+  width : 76%;
+  text-align: left;
+}
+
+.accordion_penalizare_result{
+  width: 7%;
+}
+
+.accordion_penalizare_count{
+  width: 7%;
+}
+
 @media (max-width: 320px) {  
   .modal {
     width: 75%;
@@ -446,11 +484,27 @@
   :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
     width: 100%;
   }
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-collapse .ant-collapse-content>.ant-collapse-content-box {
+    padding: 3px 3px;
+  }
+
   .modal {
     width: 85%;
   }
   .candidat{
     width: 90%;
+  }
+
+  .notSelectedId {
+    font-size: 1.1rem;
+  }
+  .accordion_penalizare_id{
+    width : 14%;
+   }
+    
+  .accordion_penalizare_text{
+    width : 72%;
+    text-align: left;
   }
 }
 

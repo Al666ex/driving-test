@@ -71,8 +71,10 @@ const Candidat = () => {
     
   return (
     <>
-    <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
-    <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
+    <div>
+      <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
+      <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
+    </div>
     {/* {((candidat === null || carnumber === null) && clickStart === true)  && */}
     {(worning )  &&
       <Alert

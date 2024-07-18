@@ -14,7 +14,8 @@
   --background-header-main-failed : #e32525;
   --button-box-shadow:rgba(0, 0, 0, 0.2);
   --select-disabled :rgba(0, 0, 0, 0.04);
-  --text-color : #bbd3f6;
+  /* --form-item-label : #bbd3f6; */
+  --text-color : #bbd3f6;  
   color-scheme: light dark;
   color: rgba(58, 35, 35, 0.87);
   font-synthesis: none;
