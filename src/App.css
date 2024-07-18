@@ -495,6 +495,16 @@ body.hide-scrollbar {
 
 @media (max-width: 480px) {  
 
+  .timer{
+    font-size: 1.6rem;
+  }
+  .custom-icon{
+    font-size: 1.6rem;
+  }
+  .puncteleAcumulate {
+    font-size: 1.6rem;    
+  }
+
   .main {    
     padding: 0.5rem;
   }

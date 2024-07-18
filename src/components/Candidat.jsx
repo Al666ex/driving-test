@@ -100,10 +100,10 @@ const Candidat = () => {
           <span style={{ paddingRight: '5px' }}> SCCA CHIŞINĂU </span>
         </div>
         <div className='examiner'>
-          <SelectCandidat width={'100%'} />          
+          <SelectCandidat width={'100%'} defaultValue={candidat ? candidat : null} />          
         </div>
         <div className='examiner'>
-          <SelectAuto width={'100%'} />
+          <SelectAuto width={'100%'} defaultValue={carnumber ? carnumber : null} />
         </div>      
     </div>
     </>

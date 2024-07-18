@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, Flex, Alert } from 'antd';
 import {toAddZero} from '../../utils/toAddZero'
 import {useSelector,useDispatch} from 'react-redux'
-import {setIsRunning,setStopExamen,setFieldsDisabled} from '../../app/dlSlice'
-import {ClockCircleOutlined, PlayCircleOutlined} from '@ant-design/icons'
+import {setIsRunning,setStopExamen,setFieldsDisabled,setPage} from '../../app/dlSlice'
+import {ClockCircleOutlined, PlayCircleOutlined, LeftOutlined} from '@ant-design/icons'
 import StyledComponent from './StyledComponent' 
 
 
@@ -124,7 +124,7 @@ const Timer = () => {
 
   return (
     // <div style={{marginTop : '1rem'}}>
-    <div style={{marginTop : '0.5rem'}}>
+    <div >
 
       {/* {((candidat === null || carnumber === null) && clickStart === true)  &&
       <Alert
@@ -137,20 +137,25 @@ const Timer = () => {
         closable
       />}  */}
  
-      <Flex align='center' justify='space-between' style={{width : '100%', color : 'white', margin : '5px 0px'}}>
+      <Flex align='center' justify='space-between' style={{display :'contents', width : '100%', color : 'white', margin : '5px 0px'}}>
         
-        <div className={hideButton === true ? 'hideTime' : 'center'}>
+        <div style={{marginBottom : '0.5rem'}} className={hideButton === true ? 'hideTime' : ''}>
           {
             !isRunning ? (
-            <Button 
-              className='start-button' 
-              icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}
-              style={{fontSize : '1rem', padding : '0.4rem'}}
-              size='large' 
-              type='primary' 
-              onClick={confirmStart}
-            >START EXAMENUL
-            </Button>
+            <div className='header'>
+              <div onClick={() => {dispatch(setPage(2))}} style={{fontSize : '3rem', color: 'var(--color-static-text)'}}> <LeftOutlined /></div>
+              <div>
+                <Button 
+                  className='start-button' 
+                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}
+                  style={{fontSize : '1rem', padding : '0.4rem'}}
+                  size='large' 
+                  type='primary' 
+                  onClick={confirmStart}
+                >START EXAMENUL
+                </Button>
+              </div>
+            </div>  
           ) : (
             <Button 
               className='start-button' 
@@ -166,7 +171,7 @@ const Timer = () => {
       </Flex>
 
       {startTime && (
-        <div style={{display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
+        <div className='header'>
           <Flex justify='start' align='center'>
             <ClockCircleOutlined  className='custom-icon' />
             <div className='timer'> {toAddZero(differenceInMinutes)}:{toAddZero(differenceInSeconds)}</div>
@@ -177,7 +182,7 @@ const Timer = () => {
       )}
 
       {!isRunning && (finalDifferenceInMinutes > 0 || finalDifferenceInSeconds > 0) && (
-        <div style={{display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
+        <div className='header'>
           <div className='timer'>Durata examenului {toAddZero(finalDifferenceInMinutes)}:{toAddZero(finalDifferenceInSeconds)} </div>
           {/* <div className='puncteleAcumulate'>Punctele acumulate <StyledComponent punctele={punctele} /> */}
           <div className='puncteleAcumulate'>Punctele <StyledComponent punctele={punctele} />
