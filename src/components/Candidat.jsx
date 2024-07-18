@@ -71,7 +71,7 @@ const Candidat = () => {
     
   return (
     <>
-    <div>
+    <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between', padding : '1.5rem'}}>
       <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
       <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
     </div>

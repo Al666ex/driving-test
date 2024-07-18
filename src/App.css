@@ -18,7 +18,7 @@ body.hide-scrollbar {
 }
 
 .logout{
-  position: absolute;
+  /* position: absolute; */
   top: 1.5rem;
   left: 1.5rem;
   font-size: 3rem;
@@ -26,7 +26,7 @@ body.hide-scrollbar {
 }
 
 .stepRight{
-  position: absolute;
+  /* position: absolute; */
   top: 1.5rem;
   right: 1.5rem;
   font-size: 3rem;
