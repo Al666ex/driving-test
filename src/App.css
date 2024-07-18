@@ -461,6 +461,10 @@
   width: 7%;
 }
 
+:where(.css-zg0ahe).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-arrow svg { 
+  color: gainsboro;
+}
+
 @media (max-width: 320px) {  
   .modal {
     width: 75%;
