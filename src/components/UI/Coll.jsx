@@ -255,7 +255,7 @@ const Coll = () => {
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>
         <Collapse
          
-          // style={{ height: 'auto', scroll: 'auto' }}
+          style={{ height: 'auto', scroll: 'auto' }}
           accordion
           items={items}
           activeKey={activeKey}
