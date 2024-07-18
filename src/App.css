@@ -494,10 +494,19 @@ body.hide-scrollbar {
 }
 
 @media (max-width: 480px) {  
+
+  .main {    
+    padding: 0.5rem;
+  }
+
   :where(.css-dev-only-do-not-override-zg0ahe).ant-form {
     width: 100%;
   }
   :where(.css-dev-only-do-not-override-zg0ahe).ant-collapse .ant-collapse-content>.ant-collapse-content-box {
+    padding: 3px 3px;
+  }
+
+  :where(.css-zg0ahe).ant-collapse .ant-collapse-content>.ant-collapse-content-box {
     padding: 3px 3px;
   }
 
