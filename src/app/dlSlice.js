@@ -314,6 +314,7 @@ export const dlSlice = createSlice({
         mocksSolicitants : [
           {name : 'TOFAN ZINAIDA', category : 'B',typeCV : 'AUTOMATĂ'},
           {name : 'ROTARU CONSTANTIN', category : 'C',typeCV : 'MECANICĂ'},
+          {name : 'POPOV OLGA', category : 'B',typeCV : 'AUTOMATĂ'},
           {name : 'GRIGORII TATIANA', category : 'D',typeCV : 'MECANICĂ'}
         ],
         // mocksCars : ['CAB138','CAB139','CAB140','CAB141'],
