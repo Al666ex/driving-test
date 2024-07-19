@@ -12,6 +12,7 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
   const mocksCars = useSelector((state) => state.dl.mocksCars);
   const options = setKeysOptionForSelect(mocksCars)      
   const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled)  
+  const candidat = useSelector((state) => state.dl.candidat)
   const dispatch = useDispatch()
 
   // const inputStyle = {
@@ -36,6 +37,7 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
         <Select
             showSearch            
             defaultValue={defaultValue}
+            // defaultValue={carnumber === null ? '' : defaultValue}
             placeholder={'AUTO'}            
             style={{              
               width
@@ -43,8 +45,10 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
               // backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white',
             }}
             onChange={handleChange}
+            value={carnumber}
             options={options}
-            disabled={fieldsDisabled}
+            disabled={!candidat ? true : false}
+            // disabled={fieldsDisabled}
         />
     </div>
   )

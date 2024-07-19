@@ -316,15 +316,26 @@ export const dlSlice = createSlice({
           {name : 'ROTARU CONSTANTIN', category : 'C',typeCV : 'MECANICĂ'},
           {name : 'GRIGORII TATIANA', category : 'D',typeCV : 'MECANICĂ'}
         ],
-        mocksCars : ['CAB138','CAB139','CAB140','CAB141'],
+        // mocksCars : ['CAB138','CAB139','CAB140','CAB141'],
+        mocksCars : [],
+        mocksArrCars : [ 
+          {category :'B', carsNumb : ['CAB138','CAB139','CAB140','CAB141']},
+          {category :'C', carsNumb : ['CAB320','CAB321','CAB322']},
+          {category :'D', carsNumb : ['CAB699','CAB700','CAB701','CAB702','CAB703']},
+        ],
         candidat : null,
         stopExamen : false,
         fieldsDisabled : false,
         statistics : [],
         headerHeight : null,
-        page : 1
+        page : 1,   
+        candidatFields : null     
     },
     reducers : {
+        setCandidatFields : (state,action) => {
+          state.candidatFields = action.payload
+          return;
+        },
 
         setCarnumber : (state,action) => {
           state.carnumber = action.payload;
@@ -381,6 +392,16 @@ export const dlSlice = createSlice({
 
         setCandidat : (state,action) => {
           state.candidat = action.payload;
+          // const candidat = state.candidat
+          // const findCandidat = state.mocksSolicitants.find(({name}) => name === candidat).category;
+          // console.log('findCandidat',findCandidat)
+          // let cars = []
+          // if(findCandidat){
+          //   cars = state.mocksArrCars.find(({category}) => category === 'C').carsNumb
+          // }
+
+          // state.mocksCars = [...cars];
+
           return;
         },
 
@@ -420,6 +441,10 @@ export const dlSlice = createSlice({
         setPage : (state, action) => {
           state.page = action.payload
           return;
+        },
+        setMocksCars : (state, action) => {
+          state.mocksCars = action.payload;
+          return;
         }
        
     }    
@@ -435,7 +460,9 @@ export const {
     setFieldsDisabled,
     setStatistics,
     setHeaderHeight,
-    setPage
+    setPage,
+    setMocksCars,
+    setCandidatFields
 } = dlSlice.actions
 
 export default dlSlice.reducer

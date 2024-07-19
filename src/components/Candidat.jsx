@@ -5,10 +5,10 @@ import SelectAuto from './UI/SelectAuto';
 import { Flex, Modal, Alert } from 'antd';
 import {LogoutOutlined,HomeOutlined,CheckOutlined,RightOutlined,PropertySafetyOutlined } from '@ant-design/icons'
 import { setIsAuth, setUser } from '../app/authSlice';
-import {  setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight, setPage } from '../app/dlSlice';
+import {setCandidatFields,setMocksCars, setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight, setPage } from '../app/dlSlice';
 
 const Candidat = () => {
-  const [candidatFields, setCandidatFields] = useState(null)
+  // const [candidatFields, setCandidatFields] = useState(null)  
   const [worning,setWarning] = useState('')
   const [nextPage, setNextPage] = useState(false)
     const mocksSolicitants = useSelector((state) => state.dl.mocksSolicitants)
@@ -16,15 +16,24 @@ const Candidat = () => {
     const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled);  
     const candidat = useSelector((state) => state.dl.candidat)
     const carnumber = useSelector((state) => state.dl.carnumber)
+    const mocksArrCars = useSelector((state) => state.dl.mocksArrCars)
+    const candidatFields = useSelector((state) => state.dl.candidatFields)
     const dispatch = useDispatch()
+
+    useEffect(() =>{
+      if(!candidat ){
+        dispatch(setCarnumber(null))
+      }
+    },[])
 
     useEffect(() => {
       if(candidat !== null){
         const findCandidat = mocksSolicitants.find((item) => item.name === candidat)
         if(findCandidat){        
-          setCandidatFields({category : findCandidat.category, typeCV : findCandidat.typeCV})
+          dispatch(setCandidatFields({category : findCandidat.category, typeCV : findCandidat.typeCV}))
+          dispatch(setMocksCars(mocksArrCars.find(({category}) => category === findCandidat.category).carsNumb))          
         }
-        
+
         return 
       }
     },[candidat])
@@ -71,11 +80,6 @@ const Candidat = () => {
     
   return (
     <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between', padding : '1.5rem'}}>
-      {/* <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between'}} >
-        <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
-        <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
-      </div> */}
-      {/* {((candidat === null || carnumber === null) && clickStart === true)  && */}
       {(worning )  &&
         <Alert
           message="Text de avertizare"

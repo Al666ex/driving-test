@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {Select} from 'antd'
 import { UserAddOutlined } from '@ant-design/icons';
-import {setCandidat} from '../../app/dlSlice'
+import {setCandidat,setCarnumber} from '../../app/dlSlice'
 import {useDispatch,useSelector} from 'react-redux'
 import {setKeysOptionForSelect} from '../../utils/setKeysOptionForSelect'
 
@@ -15,6 +15,11 @@ const SelectCandidat = ({width = 100, defaultValue=null}) => {
   }))      
   const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled)  
   const dispatch = useDispatch()
+
+  useEffect(() =>{    
+     dispatch(setCarnumber(null))
+    
+  },[candidat])
 
   // const inputStyle = {
   //   width: candidat === null ? 130 :  candidat.lenght,
