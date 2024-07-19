@@ -70,43 +70,47 @@ const Candidat = () => {
       }
     
   return (
-    <>
     <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between', padding : '1.5rem'}}>
-      <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
-      <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
-    </div>
-    {/* {((candidat === null || carnumber === null) && clickStart === true)  && */}
-    {(worning )  &&
-      <Alert
-        message="Text de avertizare"
-        style={{position : 'absolute', zIndex : '10', width : '75%'}}
-        description={worning}
-        showIcon
-        type="warning"        
-        onClose={() => {setWarning('')}}
-        closable
-      />} 
-    <div className='candidat'>
-        
-        <div  className='examiner' >          
-        <span className='text_static_header'>{<CheckOutlined /> } </span>
-          <span style={{ paddingRight: '5px' }}>
-            {user.slice(0, user.indexOf('.')).toUpperCase()} {user.slice(user.indexOf('.') + 1).toUpperCase()}
-          </span>
-        </div>
+      {/* <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between'}} >
+        <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
+        <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
+      </div> */}
+      {/* {((candidat === null || carnumber === null) && clickStart === true)  && */}
+      {(worning )  &&
+        <Alert
+          message="Text de avertizare"
+          style={{position : 'absolute', zIndex : '10', width : '75%'}}
+          description={worning}
+          showIcon
+          type="warning"        
+          onClose={() => {setWarning('')}}
+          closable
+        />} 
+      <div className='candidat'>
+          <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between', paddingBottom : '1.5rem'}} >
+            <div onClick={handleClick} className='logout'>{!fieldsDisabled && <LogoutOutlined />} </div>
+            <div onClick={handleClickRight} className='stepRight'>{!fieldsDisabled && <RightOutlined />} </div>
+          </div>
+          
+          <div  className='examiner' >          
+          <span className='text_static_header'>{<CheckOutlined /> } </span>
+            <span style={{ paddingRight: '5px' }}>
+              {user.slice(0, user.indexOf('.')).toUpperCase()} {user.slice(user.indexOf('.') + 1).toUpperCase()}
+            </span>
+          </div>
 
-        <div className='examiner'>          
-          <span className='text_static_header'>{!fieldsDisabled && <HomeOutlined /> } </span>
-          <span style={{ paddingRight: '5px' }}> SCCA CHIŞINĂU </span>
-        </div>
-        <div className='examiner'>
-          <SelectCandidat width={'100%'} defaultValue={candidat ? candidat : null} />          
-        </div>
-        <div className='examiner'>
-          <SelectAuto width={'100%'} defaultValue={carnumber ? carnumber : null} />
-        </div>      
+          <div className='examiner'>          
+            <span className='text_static_header'>{!fieldsDisabled && <HomeOutlined /> } </span>
+            <span style={{ paddingRight: '5px' }}> SCCA CHIŞINĂU </span>
+          </div>
+          <div className='examiner'>
+            <SelectCandidat width={'100%'} defaultValue={candidat ? candidat : null} />          
+          </div>
+          <div className='examiner'>
+            <SelectAuto width={'100%'} defaultValue={carnumber ? carnumber : null} />
+          </div>      
+      </div>
     </div>
-    </>
   )
 }
 

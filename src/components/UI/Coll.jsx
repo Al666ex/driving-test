@@ -213,7 +213,8 @@ const Coll = () => {
   const items = list.map((param) => ({
     key: param.id,
     label: `${param.id}. ${param.title}`,
-    style: { fontSize: '1.3rem', color: 'white' },
+    // style: { fontSize: '1.3rem', color: 'white' },
+    className :'collapse_item',
     children: (
       <>
         {param.penalizare.map((penalizare, index) => (
