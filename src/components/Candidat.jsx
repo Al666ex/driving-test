@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import SelectCandidat from './UI/SelectCandidat';
 import SelectAuto from './UI/SelectAuto';
 import { Flex, Modal, Alert } from 'antd';
-import {LogoutOutlined,HomeOutlined,CheckOutlined,RightOutlined } from '@ant-design/icons'
+import {LogoutOutlined,HomeOutlined,CheckOutlined,RightOutlined,PropertySafetyOutlined } from '@ant-design/icons'
 import { setIsAuth, setUser } from '../app/authSlice';
 import {  setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight, setPage } from '../app/dlSlice';
 
@@ -106,6 +106,16 @@ const Candidat = () => {
           <div className='examiner'>
             <SelectCandidat width={'100%'} defaultValue={candidat ? candidat : null} />          
           </div>
+          {candidatFields && (
+
+              <Flex className='examiner' >  
+                <PropertySafetyOutlined className='text_static_header' />                         
+                <Flex justify='space-between' gap={'1rem'} style={{paddingLeft : '5px'}} >                    
+                  <span> {candidatFields && candidatFields.category}</span> <span> {candidatFields && candidatFields.typeCV}</span>
+                </Flex>
+              </Flex>
+
+          )}
           <div className='examiner'>
             <SelectAuto width={'100%'} defaultValue={carnumber ? carnumber : null} />
           </div>      

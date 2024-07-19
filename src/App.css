@@ -56,7 +56,7 @@ body.hide-scrollbar {
   border: 1px var(--color-white) solid;
   border-radius: 5px;
   padding: 5px 10px;
-  margin-bottom: 3rem;
+  margin-bottom: 1.8rem;
 }
 
 .headerMain{
@@ -268,6 +268,15 @@ body.hide-scrollbar {
 .puncteleAcumulate{
   font-size: 2rem;
   color: var(--color-white);
+}
+
+.left-aligned {
+  display: flex;
+  align-items: center;
+}
+
+.left-aligned span {
+  margin-left: 8px; /* Добавьте отступ для текста справа от иконки */
 }
 
 :where(.css-zg0ahe).ant-modal-confirm .ant-modal-confirm-btns {
