@@ -61,7 +61,7 @@ const Timer = () => {
 
     Modal.confirm({
       title: 'Începe testul practic pentru permisul de conducere?',      
-      width : '900px',
+      // width : '900px',
       fontSize : '1.2rem',
       onOk: handleStart,
       okText: 'Da',
@@ -147,8 +147,9 @@ const Timer = () => {
               <div>
                 <Button 
                   className='start-button' 
-                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}                  
-                  size='large' 
+                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}  
+                  style={{fontSize : '1rem'}}                 
+                  // size='large' 
                   type='primary' 
                   onClick={confirmStart}
                 >START EXAMENUL
@@ -157,8 +158,9 @@ const Timer = () => {
             </div>  
           ) : (
             <Button 
-              className='start-button'               
-              size='large' 
+              className='start-button'  
+              style={{fontSize : '1rem'}}             
+              // size='large' 
               type='primary' 
               onClick={confirmStop}
             >FINALIZAREA EXAMENULUI

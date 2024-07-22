@@ -13,6 +13,10 @@ body.hide-scrollbar {
   overflow: hidden;
 }
 
+.start_stop_Button{
+  font-size: 2rem;
+}
+
 .authButton{
   padding: 1.5rem;
   font-size: x-large;  
@@ -311,7 +315,7 @@ body.hide-scrollbar {
 }
 
 :where(.css-zg0ahe).ant-btn-primary {
-  padding: 1.4rem;
+  padding: 0.4rem;
   font-size: x-large;
 }
 
@@ -509,7 +513,10 @@ body.hide-scrollbar {
   :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {
     padding: 0.3rem;
   }
-
+  /* :where(.css-zg0ahe).ant-btn-primary {
+    padding: 1rem;
+    font-size: small;
+} */
   .timer{
     font-size: 1.5rem;
   }
@@ -601,21 +608,21 @@ body.hide-scrollbar {
 @media (min-width: 901px) and (max-width: 1024px) {  
 
   :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {
-    font-size: x-large;
+    font-size: large;
   }
 
   .collapse_item{
-    font-size: 3rem;    
+    font-size: 2rem;    
   }
   .notSelectedId {
     font-size: 2.3rem;
   }
 
   .timer{
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .puncteleAcumulate {
-    font-size: 2.5rem;    
+    font-size: 2rem;    
   }
 
 }
