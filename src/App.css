@@ -18,16 +18,14 @@ body.hide-scrollbar {
   font-size: x-large;  
 }
 
-.logout{
-  /* position: absolute; */
+.logout{  
   top: 1.5rem;
   left: 1.5rem;
   font-size: 3rem;
   color: var(--color-static-text);
 }
 
-.stepRight{
-  /* position: absolute; */
+.stepRight{  
   top: 1.5rem;
   right: 1.5rem;
   font-size: 3rem;
@@ -36,8 +34,7 @@ body.hide-scrollbar {
 
 
 .main{
-  max-width: 1280px;
-  /* min-width: 600px;   */
+  max-width: 1280px;  
   margin: 0 auto;
   padding: 1rem;
   padding-top: 10px;
@@ -59,21 +56,16 @@ body.hide-scrollbar {
   margin-bottom: 1.8rem;
 }
 
-.headerMain{
+.headerFixed{
+  width: 100%;
+  position: fixed;
   top: 0;
   left: 0;
-  position: fixed;
-  width: 100%;  
-  background: var(--background-header-main);
-
-  opacity: 1;
-  z-index: 100; 
-  background-size: cover;
+  z-index: 100;   
 }
 
-.inputSize{
-  font-size: 1.5rem;
-  font-weight: bold;
+.headerMain{
+  padding : 15px;
 }
 
 .headerMainFailed{
@@ -87,15 +79,20 @@ body.hide-scrollbar {
   background-size: cover;
 }
 
-.header{
+.inputSize{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.main_timer{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .timer{
-  font-size: 2rem;
-  /* font-weight: bold; */
+  font-size: 2rem;  
   color: var(--color-white);
 }
 
@@ -266,7 +263,7 @@ body.hide-scrollbar {
 }
 
 .puncteleAcumulate{
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: var(--color-white);
 }
 
@@ -511,13 +508,13 @@ body.hide-scrollbar {
 @media (max-width: 480px) {  
 
   .timer{
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   .custom-icon{
     font-size: 1.6rem;
   }
   .puncteleAcumulate {
-    font-size: 1.6rem;    
+    font-size: 1.5rem;    
   }
 
   .main {    
@@ -558,6 +555,12 @@ body.hide-scrollbar {
     font-size: 1.2rem;
   }
 
+  .headerMain {
+    padding: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 }
 
 /* От ландшафтного экрана телефона до потретного планшета */
@@ -584,11 +587,7 @@ body.hide-scrollbar {
   .notSelectedId {
     font-size: 2rem;
   }
-  
 
-  /* .modal {
-    width: 400px;
-  } */
 }
 
 @media (min-width: 901px) and (max-width: 1024px) {  
@@ -598,6 +597,14 @@ body.hide-scrollbar {
   .notSelectedId {
     font-size: 2.3rem;
   }
+
+  .timer{
+    font-size: 2.5rem;
+  }
+  .puncteleAcumulate {
+    font-size: 2.5rem;    
+  }
+
 }
 
 @media (min-width: 768px) and (max-height: 605px) { 
@@ -610,21 +617,7 @@ body.hide-scrollbar {
 
 }
 
-/* @media (min-width: 768px) and (max-height: 605px) { 
-  .collapse_item{
-    font-size: 1.5rem;    
-  }
-  .notSelectedId {
-    font-size: 1.2rem;
-  }  
-
-} */
-
 /* Большой дисплей */
 @media (min-width: 1200px) {  
-  /* .modal {
 
-    width: 60%;
-
-} */
 }

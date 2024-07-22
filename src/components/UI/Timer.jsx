@@ -142,7 +142,7 @@ const Timer = () => {
         <div style={{marginBottom : '0.5rem'}} className={hideButton === true ? 'hideTime' : ''}>
           {
             !isRunning ? (
-            <div className='header'>
+            <div className='main_timer'>
               <div onClick={() => {dispatch(setPage(2))}} style={{fontSize : '3rem', color: 'var(--color-static-text)'}}> <LeftOutlined /></div>
               <div>
                 <Button 
@@ -171,7 +171,7 @@ const Timer = () => {
       </Flex>
 
       {startTime && (
-        <div className='header'>
+        <div className='main_timer'>
           <Flex justify='start' align='center'>
             <ClockCircleOutlined  className='custom-icon' />
             <div className='timer'> {toAddZero(differenceInMinutes)}:{toAddZero(differenceInSeconds)}</div>
