@@ -254,17 +254,19 @@ const Coll = () => {
   }));
 
   return (
-    <div style={{ marginTop: headerHeight }}>
+    <div style={{ marginTop: headerHeight }} >
       {contextHolder}
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>
-        <Collapse
-         
-          // style={{ height: 'auto', scroll: 'auto' }}
-          accordion
-          items={items}
-          activeKey={activeKey}
-          onChange={handleCollapseChange}
-        />
+        <div className="hide-scrollbar">
+          <Collapse
+          
+            // style={{ height: 'auto', scroll: 'auto' }}
+            accordion
+            items={items}
+            activeKey={activeKey}
+            onChange={handleCollapseChange}
+          />
+        </div>
       </div>
     </div>
   );
