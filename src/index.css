@@ -43,14 +43,20 @@ background-size: cover;
 
 .hide-scrollbar {
   overflow-y: scroll; /* Или auto, если требуется */
+  color: transparent;
+  background-color: transparent;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
   width: 0;
   height: 0;
+  color: transparent;
+  background-color: transparent;
 }
 
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  color: transparent;
+  background-color: transparent;
 }
