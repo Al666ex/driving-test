@@ -37,7 +37,9 @@ background-color: #D3D3D3;
 /* background: url('./assets/1678710860_bogatyr-club-p-rovnii-fon-foni-krasivo-31.jpg') no-repeat center center fixed; */
 background: url('./assets/wallpapers.jpg') no-repeat center center fixed;
 background-size: cover;
+margin: 0;
 
+overflow-x: hidden;
 }
 
 

@@ -84,7 +84,7 @@ const Coll = () => {
           <div className='confirmItem'>{id}. {text}</div>
         </div>
       ),
-      width: '900px',
+      width: '80%',
       centered: true,
       content: null,
       modalRender: (modal) => (

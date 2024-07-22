@@ -147,8 +147,7 @@ const Timer = () => {
               <div>
                 <Button 
                   className='start-button' 
-                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}
-                  style={{fontSize : '1rem', padding : '0.4rem'}}
+                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}                  
                   size='large' 
                   type='primary' 
                   onClick={confirmStart}
@@ -158,8 +157,7 @@ const Timer = () => {
             </div>  
           ) : (
             <Button 
-              className='start-button' 
-              style={{fontSize : '1rem', padding : '0.4rem'}}
+              className='start-button'               
               size='large' 
               type='primary' 
               onClick={confirmStop}

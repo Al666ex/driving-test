@@ -108,8 +108,8 @@ body.hide-scrollbar {
 
 .start-button {
   font-size: 1rem; /* Размер шрифта */
-  font-weight: bold; /* Жирность шрифта */
-  padding: 10px 20px; /* Внутренние отступы */
+  font-weight: bold; /* Жирность шрифта */  
+  padding: 0.4rem;
   height: auto; /* Высота кнопки */
   width: auto; /* Ширина кнопки */
   background: #1a5297;
@@ -129,7 +129,7 @@ body.hide-scrollbar {
   color: var(--color-white);
   background: rgba(161,21,207, 0.5);
   padding: 0.7rem;
-  font-size: x-large;
+  font-size: medium;
 }
 
 .candidat{
@@ -263,7 +263,7 @@ body.hide-scrollbar {
 }
 
 .puncteleAcumulate{
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: var(--color-white);
 }
 
@@ -506,6 +506,9 @@ body.hide-scrollbar {
 }
 
 @media (max-width: 480px) {  
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {
+    padding: 0.3rem;
+  }
 
   .timer{
     font-size: 1.5rem;
@@ -559,6 +562,11 @@ body.hide-scrollbar {
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
+ }
+
+ :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {
+
+  font-size: 1rem;
 }
 
 }
@@ -591,6 +599,11 @@ body.hide-scrollbar {
 }
 
 @media (min-width: 901px) and (max-width: 1024px) {  
+
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-btn-primary {
+    font-size: x-large;
+  }
+
   .collapse_item{
     font-size: 3rem;    
   }
