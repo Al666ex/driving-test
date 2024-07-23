@@ -489,9 +489,9 @@ body.hide-scrollbar {
   font-size: 1.5rem;
 }
 
-:where(.css-zg0ahe).ant-modal-confirm .ant-modal-confirm-title {
+/* :where(.css-zg0ahe).ant-modal-confirm .ant-modal-confirm-title {
   font-size: 24px;
-}
+} */
 
 @media (max-width: 320px) {  
   .modal {
