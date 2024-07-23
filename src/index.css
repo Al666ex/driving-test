@@ -37,28 +37,23 @@ background-color: #D3D3D3;
 /* background: url('./assets/1678710860_bogatyr-club-p-rovnii-fon-foni-krasivo-31.jpg') no-repeat center center fixed; */
 background: url('./assets/wallpapers.jpg') no-repeat center center fixed;
 background-size: cover;
-margin: 0;
 
-overflow-x: hidden;
 }
 
-
-.hide-scrollbar {
-  overflow-y: scroll; /* Или auto, если требуется */
-  color: transparent;
-  background-color: transparent;
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
+::-webkit-scrollbar-thumb { 
   background-color: transparent;
+  border-radius: 0px;    
 }
 
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  color: transparent;
-  background-color: transparent;
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-thumb:horizontal{ 
+  background-color: #b9c9c9;
+  border-radius: 0px;      
 }

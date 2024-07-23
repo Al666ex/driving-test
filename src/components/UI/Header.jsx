@@ -1,12 +1,18 @@
 import React,{useEffect, useRef} from 'react';
+import { Flex, Modal } from 'antd';
 import { useSelector,useDispatch } from 'react-redux';
+import SelectCandidat from './SelectCandidat';
+import SelectAuto from './SelectAuto';
 import Timer from './Timer';
-import { setHeaderHeight } from '../../app/dlSlice';
+import {LogoutOutlined } from '@ant-design/icons'
+import { setIsAuth, setUser } from '../../app/authSlice';
+import { setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight } from '../../app/dlSlice';
 
-const Header = () => {  
+
+const Header = () => {
+  const user = useSelector((state) => state.auth.user);
   const headerHeight = useSelector((state) => state.dl.headerHeight)
-  const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled); 
-  const punctele = useSelector((state) => state.dl.punctele) 
+  const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled);  
   const dispatch = useDispatch()
   const headerRef = useRef(null);
 
@@ -20,10 +26,10 @@ const Header = () => {
   },[fieldsDisabled])
 
   return (
-    <div ref={headerRef} className='headerMain' style={{background : punctele >=21 ? 'var(--background-header-main-failed)' : 'var(--background-header-main)' }}>
-      <div style={{maxWidth : '1280px', margin : '0 auto', paddingLeft : '1rem', paddingRight : '1rem'}}>
-        <Timer />
-      </div>
+    <div ref={headerRef}  style={{ display: 'block', color: 'white', margin: '0 auto', maxWidth: '1280px', position: 'relative', padding: '15px' }}>
+      <Flex justify='space-between' align='center'>
+      </Flex>
+      <Timer />
     </div>
   );
 }

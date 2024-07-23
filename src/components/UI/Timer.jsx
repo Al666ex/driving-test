@@ -61,7 +61,7 @@ const Timer = () => {
 
     Modal.confirm({
       title: 'Începe testul practic pentru permisul de conducere?',      
-      // width : '900px',
+      width : '900px',
       fontSize : '1.2rem',
       onOk: handleStart,
       okText: 'Da',
@@ -142,14 +142,14 @@ const Timer = () => {
         <div style={{marginBottom : '0.5rem'}} className={hideButton === true ? 'hideTime' : ''}>
           {
             !isRunning ? (
-            <div className='main_timer'>
+            <div className='header'>
               <div onClick={() => {dispatch(setPage(2))}} style={{fontSize : '3rem', color: 'var(--color-static-text)'}}> <LeftOutlined /></div>
               <div>
                 <Button 
                   className='start-button' 
-                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}  
-                  style={{fontSize : '1rem'}}                 
-                  // size='large' 
+                  icon={<PlayCircleOutlined style={{ fontSize: '1rem' }} />}
+                  style={{fontSize : '1rem', padding : '0.4rem'}}
+                  size='large' 
                   type='primary' 
                   onClick={confirmStart}
                 >START EXAMENUL
@@ -158,9 +158,9 @@ const Timer = () => {
             </div>  
           ) : (
             <Button 
-              className='start-button'  
-              style={{fontSize : '1rem'}}             
-              // size='large' 
+              className='start-button' 
+              style={{fontSize : '1rem', padding : '0.4rem'}}
+              size='large' 
               type='primary' 
               onClick={confirmStop}
             >FINALIZAREA EXAMENULUI
@@ -171,7 +171,7 @@ const Timer = () => {
       </Flex>
 
       {startTime && (
-        <div className='main_timer'>
+        <div className='header'>
           <Flex justify='start' align='center'>
             <ClockCircleOutlined  className='custom-icon' />
             <div className='timer'> {toAddZero(differenceInMinutes)}:{toAddZero(differenceInSeconds)}</div>

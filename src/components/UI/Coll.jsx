@@ -9,17 +9,6 @@ const { confirm, info } = Modal;
 const Coll = () => {
   const [failedExam, setFailedExam] = useState(false);
   const [api, contextHolder] = notification.useNotification();
-  const list = useSelector((state) => state.dl.list);
-  const isRunning = useSelector((state) => state.dl.isRunning);
-  const stopExamen = useSelector((state) => state.dl.stopExamen);
-  const punctele = useSelector((state) => state.dl.punctele);
-  const statistics = useSelector((state) => state.dl.statistics);
-  const dispatch = useDispatch();
-  const [selectedId, setSelectedId] = useState(null);
-  const [activeKey, setActiveKey] = useState(null);  
-  const headerHeight = useSelector((state) => state.dl.headerHeight);
-  const collapseRef = useRef()
-
   const openNotification = () => {
     api.error({
       message: (
@@ -37,6 +26,19 @@ const Coll = () => {
       },
     });
   };
+
+  const list = useSelector((state) => state.dl.list);
+  const isRunning = useSelector((state) => state.dl.isRunning);
+  const stopExamen = useSelector((state) => state.dl.stopExamen);
+  const punctele = useSelector((state) => state.dl.punctele);
+  const statistics = useSelector((state) => state.dl.statistics);
+  const dispatch = useDispatch();
+  const [selectedId, setSelectedId] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
+  const collRef = useRef(null);
+  const headerHeight = useSelector((state) => state.dl.headerHeight);
+
+  
 
   useEffect(() => {
     if (failedExam === false && punctele >= 21) {
@@ -84,7 +86,7 @@ const Coll = () => {
           <div className='confirmItem'>{id}. {text}</div>
         </div>
       ),
-      width: '80%',
+      width: '900px',
       centered: true,
       content: null,
       modalRender: (modal) => (
@@ -92,6 +94,8 @@ const Coll = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          // height: '100vh',
+          // width: '100%'
         }}>
           {modal}
         </div>
@@ -156,7 +160,7 @@ const Coll = () => {
           dispatch(setStatistics([]));
         }, 100);
         location.reload();
-        // console.log('EXITTTTTT');
+        console.log('EXITTTTTT');
       },
     });
   };
@@ -172,9 +176,9 @@ const Coll = () => {
           console.log('headerHeight: ', headerHeight);
           console.log('-----');
 
-          window.scroll({            
-            // top: targetElement.offsetTop - headerHeight,
-            top: targetElement.offsetTop - (headerHeight + 1),
+
+          window.scroll({
+            top: targetElement.offsetTop - headerHeight,
             left: 0,            
             color : 'transparent',
             behavior: 'smooth'
@@ -218,6 +222,15 @@ const Coll = () => {
             key={penalizare.id}
             className={'notSelectedId'}
             style={{
+              // display: 'flex',
+              // justifyContent: 'space-between',
+              // marginBottom: '8px',
+              // transition: 'transform 0.3s',
+              // cursor: 'pointer',
+              // position: 'relative',
+              // fontSize: '1.3rem',
+              // paddingTop: '0.8rem',
+              // paddingBottom: '0.8rem',
               ...(index % 2 === 0 ? { background: '#D3D3D3', borderRadius: '0.2rem' } : {})
             }}
             onClick={() => handleItemClick(penalizare.id, penalizare.text)}
@@ -241,19 +254,17 @@ const Coll = () => {
   }));
 
   return (
-    <div style={{ marginTop: headerHeight }} >
+    <div style={{ marginTop: headerHeight }}>
       {contextHolder}
       <div className={(isRunning === false && stopExamen === false) || (stopExamen === true) ? 'disabledbutton' : ''}>
-        <div className="hide-scrollbar">
-          <Collapse ref={collapseRef}
-          
-            // style={{ height: 'auto', scroll: 'auto' }}
-            accordion
-            items={items}
-            activeKey={activeKey}
-            onChange={handleCollapseChange}
-          />
-        </div>
+        <Collapse
+         
+          // style={{ height: 'auto', scroll: 'auto' }}
+          accordion
+          items={items}
+          activeKey={activeKey}
+          onChange={handleCollapseChange}
+        />
       </div>
     </div>
   );
