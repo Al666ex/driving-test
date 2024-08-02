@@ -11,9 +11,12 @@ function App() {
   const isAuth = useSelector((state) => state.auth.isAuth)
   const punctele = useSelector((state) => state.dl.punctele)
   const page = useSelector((state) => state.dl.page)
+  // const statistics = useSelector((state) => state.dl.statistics)
   const dispatch = useDispatch()
 
   useEffect(() => {
+
+    // if(statistics === null){dispatch(setStatistics([]))}
 
     const initList = JSON.parse(JSON.stringify(localStorage.getItem('list'))) 
     let accPunctele = [];
@@ -42,7 +45,8 @@ function App() {
       localStorage.setItem("headerHeight", JSON.stringify(null));      
       localStorage.setItem("page", JSON.stringify(1));
       localStorage.setItem("candidatFields", JSON.stringify(null));
-      localStorage.setItem("statistics", JSON.stringify([]))    
+      localStorage.setItem("statistics", JSON.stringify([])) 
+      // dispatch(setStatistics([]))   
       
     } else {
       const authStorage = localStorage.getItem("isAuth");      
@@ -59,9 +63,9 @@ function App() {
 
       dispatch(setPunctele())
 
-      const statistics = JSON.parse(JSON.stringify('statistics'))
+      const initStatistics = JSON.parse(JSON.stringify('statistics'))
                          
-      dispatch(setStatistics(statistics))      
+      dispatch(setStatistics(initStatistics))      
       
     } 
    

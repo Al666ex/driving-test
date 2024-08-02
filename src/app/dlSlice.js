@@ -14,6 +14,7 @@ if(initList){
 }
 
 const initStatistics = JSON.parse(localStorage.getItem('statistics'))
+const statINIT = initStatistics === null ? [] : initStatistics
 
 export const dlSlice = createSlice({
     name : 'queryParams',
@@ -39,7 +40,7 @@ export const dlSlice = createSlice({
         stopExamen : false,
         fieldsDisabled : false,
         // statistics : [],
-        statistics : initStatistics,
+        statistics : statINIT,
         headerHeight : null,
         page : 1,   
         candidatFields : null     

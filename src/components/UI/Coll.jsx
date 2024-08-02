@@ -121,7 +121,7 @@ const Coll = () => {
         <div>
           <p>{content}</p>
           {
-            statistics.length > 0 ?
+            !statistics.length || statistics === null || statistics === undefined ?  <h2>Bravo nici o eroare</h2> :
               <div>
                 <h3>Lista erorilor</h3>
                 <ul>
@@ -138,7 +138,7 @@ const Coll = () => {
                     </li>
                   )}
                 </ul>
-              </div> : <h2>Bravo nici o eroare</h2>
+              </div> 
           }
         </div>
       ),
@@ -157,9 +157,11 @@ const Coll = () => {
           dispatch(setCandidat(null));
           dispatch(setStopExamen(false));
           dispatch(setFieldsDisabled(false));
-          dispatch(setStatistics([]));          
+          dispatch(setStatistics([]));    
+          location.reload();
+          localStorage.clear();       
         }, 100);
-        location.reload();
+       
         console.log('EXITTTTTT');
       },
     });
