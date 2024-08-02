@@ -92,6 +92,7 @@ const Timer2 = () => {
     setDifferenceInSeconds(0);
     setHideButton(true);
     localStorage.clear();
+    // location.reload();
     //localStorage.removeItem('startTime'); // Clear startTime from localStorage
   };
 

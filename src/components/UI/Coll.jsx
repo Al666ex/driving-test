@@ -121,7 +121,7 @@ const Coll = () => {
         <div>
           <p>{content}</p>
           {
-            statistics.length ?
+            statistics.length > 0 ?
               <div>
                 <h3>Lista erorilor</h3>
                 <ul>
