@@ -38,7 +38,7 @@ const Coll = () => {
   const collRef = useRef(null);
   const headerHeight = useSelector((state) => state.dl.headerHeight);
 
-  
+  console.log('typeof statistics +++ ',typeof statistics)
 
   useEffect(() => {
     if (failedExam === false && punctele >= 21) {
@@ -157,7 +157,7 @@ const Coll = () => {
           dispatch(setCandidat(null));
           dispatch(setStopExamen(false));
           dispatch(setFieldsDisabled(false));
-          dispatch(setStatistics([]));
+          dispatch(setStatistics([]));          
         }, 100);
         location.reload();
         console.log('EXITTTTTT');
@@ -178,7 +178,7 @@ const Coll = () => {
 
 
           window.scroll({
-            top: targetElement.offsetTop - headerHeight,
+            top: targetElement.offsetTop - headerHeight-1,
             left: 0,            
             color : 'transparent',
             behavior: 'smooth'

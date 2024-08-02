@@ -45,6 +45,7 @@ const Candidat = () => {
           onOk() {
             setTimeout(() => {
               dispatch(setIsAuth(false));
+              dispatch(setPage(1))
               dispatch(setUser(null));
               dispatch(setCarnumber(null));
               dispatch(setPunctele(0));
@@ -54,6 +55,7 @@ const Candidat = () => {
               dispatch(setFieldsDisabled(false));
               dispatch(setStatistics([]));
             }, 100);
+            localStorage.clear();
             location.reload();        
           },
           onCancel() {
@@ -69,7 +71,7 @@ const Candidat = () => {
       };
 
       const handleClickRight = () => {
-        if(candidat === null || carnumber === null){
+        if(candidat === null || carnumber === null || carnumber === ''){
           setWarning(`Completați cîmpuri CANDIDAT și AUTO`)          
           return
         }

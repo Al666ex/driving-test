@@ -5,7 +5,6 @@ import {setCandidat,setCarnumber} from '../../app/dlSlice'
 import {useDispatch,useSelector} from 'react-redux'
 import {setKeysOptionForSelect} from '../../utils/setKeysOptionForSelect'
 
-
 // const SelectType = ({field,values,width = 100,defaultValue=null}) => {  
 const SelectCandidat = ({width = 100, defaultValue=null}) => {    
   const candidat = useSelector((state) =>state.dl.candidat)
@@ -17,19 +16,10 @@ const SelectCandidat = ({width = 100, defaultValue=null}) => {
   const dispatch = useDispatch()
 
   useEffect(() =>{    
-     dispatch(setCarnumber(null))
+     localStorage.setItem('carnumber','') 
+     dispatch(setCarnumber(''))
     
   },[candidat])
-
-  // const inputStyle = {
-  //   width: candidat === null ? 130 :  candidat.lenght,
-    
-  //   fontWeight: 'bolder',
-  //   fontSize: 'large',
-  //   padding: '0px 5px',    
-  //   color: fieldsDisabled ? '#000000e0' : 'black',
-  //   backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white', 
-  // };
 
   const handleChange = (value) => { dispatch(setCandidat(value)) };
   
@@ -44,11 +34,7 @@ const SelectCandidat = ({width = 100, defaultValue=null}) => {
             showSearch            
             defaultValue={defaultValue}
             placeholder={'CANDIDAT'}            
-            style={{   
-              width
-              // width: candidat === null ? 130 :  candidat.lenght,
-              // backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white',
-            }}
+            style={{ width }}
             onChange={handleChange}
             options={options}
             disabled={fieldsDisabled}

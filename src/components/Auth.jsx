@@ -22,6 +22,7 @@ const Auth = () => {
       setLoading(true);
       setTimeout(() => {
         dispatch(setIsAuth(true));
+        // localStorage.setItem("isAuth", true)
         dispatch(setUser(email));
         setLoading(false);
         dispatch(setPage(2))

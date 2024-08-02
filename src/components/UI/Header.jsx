@@ -6,7 +6,7 @@ import SelectAuto from './SelectAuto';
 import Timer from './Timer';
 import {LogoutOutlined } from '@ant-design/icons'
 import { setIsAuth, setUser } from '../../app/authSlice';
-import { setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setStatistics,setHeaderHeight } from '../../app/dlSlice';
+import { setList, setIsRunning, setStopExamen, setCarnumber, setCandidat, setFieldsDisabled, setHeaderHeight } from '../../app/dlSlice';
 
 
 const Header = () => {
