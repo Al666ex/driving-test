@@ -5,11 +5,6 @@ import { LoginOutlined } from '@ant-design/icons';
 import { setIsAuth, setUser } from '../app/authSlice';
 import { setPage } from '../app/dlSlice'
 
-const buttonStyle = {
-  fontSize: '1.25rem', 
-  fontWeight: 'bold',
-};
-
 const Auth = () => {
   const [email, setEmail] = useState('nenov.dumitru');
   const [password, setPassword] = useState('nenov');

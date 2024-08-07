@@ -80,8 +80,8 @@ const Candidat = () => {
         dispatch(setPage(3))
       }
     
-  return (
-    <div style={{width : '100%', display : 'flex', flexDirection : 'row', position : 'relative', justifyContent : 'space-between', padding : '1.5rem'}}>
+  return (    
+    <div >
       {(worning )  &&
         <Alert
           message="Text de avertizare"

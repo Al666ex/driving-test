@@ -5,7 +5,6 @@ import {setCarnumber} from '../../app/dlSlice'
 import {useDispatch,useSelector} from 'react-redux'
 import {setKeysOptionForSelect} from '../../utils/setKeysOptionForSelect'
 
-
 // const SelectType = ({field,values,width = 100,defaultValue=null}) => {  
 const SelectAuto = ({width = 100, defaultValue=null}) => {    
   const carnumber = useSelector((state) =>state.dl.carnumber)
@@ -14,16 +13,6 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
   const fieldsDisabled = useSelector((state) => state.dl.fieldsDisabled)  
   const candidat = useSelector((state) => state.dl.candidat)
   const dispatch = useDispatch()
-
-  // const inputStyle = {
-  //   width: carnumber === null ? 130 :  carnumber.lenght,
-    
-  //   fontWeight: 'bolder',
-  //   fontSize: 'large',
-  //   padding: '0px 5px',    
-  //   color: fieldsDisabled ? '#000000e0' : 'black',
-  //   backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white', 
-  // };
 
   const handleChange = (value) => { dispatch(setCarnumber(value)) };
   
@@ -39,11 +28,7 @@ const SelectAuto = ({width = 100, defaultValue=null}) => {
             defaultValue={defaultValue}
             // defaultValue={carnumber === null ? '' : defaultValue}
             placeholder={'AUTO'}            
-            style={{              
-              width
-              //width: carnumber === null ? 100 :  carnumber.lenght,
-              // backgroundColor: fieldsDisabled ? '#d9d9d9' : 'white',
-            }}
+            style={{ width }}
             onChange={handleChange}
             value={carnumber}
             options={options}

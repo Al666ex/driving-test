@@ -2,7 +2,7 @@ import React from 'react'
 import Auth from './Auth'
 import Candidat from './Candidat'
 import Header from './UI/Header'
-import Coll from './UI/Coll'
+import Accordion from './UI/Accordion'
 
 const RenderPage = (isAuth,page,punctele) => {
 
@@ -14,7 +14,7 @@ const RenderPage = (isAuth,page,punctele) => {
         <div className={punctele >=21 ? 'headerMainFailed' : 'headerMain'}>
           <Header />
         </div>
-        <Coll />
+        <Accordion />
       </div>
     )}
   }

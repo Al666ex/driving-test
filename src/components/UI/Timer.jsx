@@ -4,7 +4,6 @@ import { toAddZero } from '../../utils/toAddZero';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsRunning, setStopExamen, setFieldsDisabled, setPage } from '../../app/dlSlice';
 import { ClockCircleOutlined, PlayCircleOutlined, LeftOutlined } from '@ant-design/icons';
-import StyledComponent from './StyledComponent';
 
 const Timer2 = () => {
   const [warning, setWarning] = useState('');
@@ -99,7 +98,7 @@ const Timer2 = () => {
 
   useEffect(() => {
     if (startTime && endTime) {
-      console.log(`startTime--- ${typeof startTime}--endTime ${typeof endTime}`);
+      // console.log(`startTime--- ${typeof startTime}--endTime ${typeof endTime}`);
       let startDate = new Date(startTime);
       let difference = endTime.getTime() - startDate.getTime();
       let minutes = Math.floor(difference / (1000 * 60));
@@ -148,14 +147,14 @@ const Timer2 = () => {
             <ClockCircleOutlined className='custom-icon' />
             <div className='timer'>{toAddZero(differenceInMinutes)}:{toAddZero(differenceInSeconds)}</div>
           </Flex>
-          <div className='puncteleAcumulate'>Punctele <StyledComponent punctele={punctele} /></div>
+          <div className='puncteleAcumulate'>Punctele {punctele}</div>
         </div>
       )}
 
       {!isRunning && (finalDifferenceInMinutes > 0 || finalDifferenceInSeconds > 0) && (
         <div className='header'>
           <div className='timer'>Durata examenului {toAddZero(finalDifferenceInMinutes)}:{toAddZero(finalDifferenceInSeconds)}</div>
-          <div className='puncteleAcumulate'>Punctele <StyledComponent punctele={punctele} /></div>
+          <div className='puncteleAcumulate'>Punctele {punctele}</div>
         </div>
       )}
     </div>

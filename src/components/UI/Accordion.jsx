@@ -6,9 +6,22 @@ import { setList, setPunctele, setIsRunning, setStopExamen, setCarnumber, setCan
 import { SaveOutlined } from '@ant-design/icons';
 const { confirm, info } = Modal;
 
-const Coll = () => {
+const Accordion = () => {
   const [failedExam, setFailedExam] = useState(false);
   const [api, contextHolder] = notification.useNotification();
+
+
+  const list = useSelector((state) => state.dl.list);
+  const isRunning = useSelector((state) => state.dl.isRunning);
+  const stopExamen = useSelector((state) => state.dl.stopExamen);
+  const punctele = useSelector((state) => state.dl.punctele);
+  const statistics = useSelector((state) => state.dl.statistics);
+  const dispatch = useDispatch();
+  const [selectedId, setSelectedId] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
+  const collRef = useRef(null);
+  const headerHeight = useSelector((state) => state.dl.headerHeight);
+
   const openNotification = () => {
     api.error({
       message: (
@@ -25,20 +38,7 @@ const Coll = () => {
         backgroundColor: 'var(--color-white)'
       },
     });
-  };
-
-  const list = useSelector((state) => state.dl.list);
-  const isRunning = useSelector((state) => state.dl.isRunning);
-  const stopExamen = useSelector((state) => state.dl.stopExamen);
-  const punctele = useSelector((state) => state.dl.punctele);
-  const statistics = useSelector((state) => state.dl.statistics);
-  const dispatch = useDispatch();
-  const [selectedId, setSelectedId] = useState(null);
-  const [activeKey, setActiveKey] = useState(null);
-  const collRef = useRef(null);
-  const headerHeight = useSelector((state) => state.dl.headerHeight);
-
-  console.log('typeof statistics +++ ',typeof statistics)
+  };  
 
   useEffect(() => {
     if (failedExam === false && punctele >= 21) {
@@ -94,8 +94,6 @@ const Coll = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          // height: '100vh',
-          // width: '100%'
         }}>
           {modal}
         </div>
@@ -214,8 +212,7 @@ const Coll = () => {
 
   const items = list.map((param) => ({
     key: param.id,
-    label: `${param.id}. ${param.title}`,
-    // style: { fontSize: '1.3rem', color: 'white' },
+    label: `${param.id}. ${param.title}`,    
     className :'collapse_item',
     children: (
       <>
@@ -225,14 +222,6 @@ const Coll = () => {
             className={'notSelectedId'}
             style={{
               // display: 'flex',
-              // justifyContent: 'space-between',
-              // marginBottom: '8px',
-              // transition: 'transform 0.3s',
-              // cursor: 'pointer',
-              // position: 'relative',
-              // fontSize: '1.3rem',
-              // paddingTop: '0.8rem',
-              // paddingBottom: '0.8rem',
               ...(index % 2 === 0 ? { background: '#D3D3D3', borderRadius: '0.2rem' } : {})
             }}
             onClick={() => handleItemClick(penalizare.id, penalizare.text)}
@@ -272,4 +261,4 @@ const Coll = () => {
   );
 };
 
-export default Coll;
+export default Accordion;
